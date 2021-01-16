@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon" />
+
+        <title>Blitz Bikes | Bombardment of Biking Reviews</title>
+    </head>
+    <body>
+
+        <div class="bg-video">
+            <video class="bg-video__content" autoplay playsinline muted>
+                <source src="static/video/bgvid.mp4" type="video/mp4" />
+            </video>
+        </div>
+
+        <h1>Blitz Bikes
+            <span>Bombardment of Biking Reviews</span>
+        </h1>
+        
+        <!--Enter Site button-->
+        <a href="{{ url_for('get_reviews') }}">
+            <button class="waves-effect waves-light btn-large">
+                Enter Site
+            </button>
+        </a>
+    </body>
+</html>
