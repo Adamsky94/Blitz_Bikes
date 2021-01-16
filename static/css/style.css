@@ -26,16 +26,29 @@ header a.brand-logo {
 
 .container__index {
     text-align: center;
-    background-image: url(../images/jpg/index_bg.jpg);
+    background-image:linear-gradient(45deg, rgb(122, 122, 122) 0 50%, rgb(122, 122, 122)), url(../images/jpg/index_bg.jpg);
+    background-blend-mode: screen;
     min-height: 100vh;
     overflow: hidden;
     background-size: cover;
-    background-blend-mode: screen;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .container__index h1 {
     font-family: Germania One;
     color: #d60000;
+    text-shadow:
+        -1px 1px 2px #000,
+        1px 1px 2px #000,
+        1px -1px 0 #000,
+        -1px -1px 0 #000;
+}
+
+.container__index h1 span {
+    display: block;
+    color: #fff;
+    font-size: 65%;
 }
 
 .container__index h1 span {
