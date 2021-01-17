@@ -1,18 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+
     <h3 class="light-blue-text text-darken-4 center-align">Reviews</h3>
 
     {% for review in reviews %}
-    <div>
-    <p>Category: {{ review.category_name }}</p>
-    <p>Bike: {{ review.bike_name }}</p>
-    <p>Electric?: {{ review.is_electric }} </p>
-    <p>Model year:{{ review.model_year }}</p>
-    <p>Review: {{review.bike_description }}</p>
-    <p>Reviewed by: {{ review.review_by }}</p>
+
+    
+  <div class="row center">
+    <div class="col s12 m7">
+      <div class="card large">
+        <div class="card-image">
+          <img class="responsive-img center" src="static/images/jpg/default_bike.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title">{{ review.bike_name }}</span>
+            Model year: {{ review.model_year }}
+            Category: {{ review.category_name }} | 
+           Reviewed by: <i>{{ review.review_by }}</i>
+        </div>
+        <div class="card-action">
+             "{{review.bike_description }}"
+        </div>
+      </div>
     </div>
+  </div>
 
     {% endfor %}
     
+     
+
 {% endblock %}
