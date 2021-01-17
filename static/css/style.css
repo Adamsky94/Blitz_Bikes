@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&family=Germania+One&display=swap');
 
+* {
+    font-family: Dosis, Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
 header a.brand-logo {
     font-family: Germania One, Georgia, 'Times New Roman', Times, serif;
 }
@@ -52,6 +58,19 @@ header a.brand-logo {
 }
 
 .container__index h1 span {
-    font-family: Dosis, Georgia, 'Times New Roman', Times, serif;
+    
     font-weight: 400;
+}
+
+/* card settings */
+/* card image */
+img.responsive-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70%;
+}
+
+span.card-title {
+    font-weight: 700;
 }
