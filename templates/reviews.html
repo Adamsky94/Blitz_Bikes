@@ -2,25 +2,34 @@
 {% block content %}
 
 <div></div>
-    <h3 class="text-black center-align">Reviews</h3>
+    <h3 class="text-black center-align">Our Community's Reviews</h3>
 
   <div id="content" class="row center">
   {% for review in reviews %}
 
     <div class="col s12 m6 l4">
       <div class="card small">
-        <div class="card-image">
-          <img class="responsive-img center" src="static/images/jpg/default_bike.jpg">
-        </div>
-          <span class="card-title">{{ review.bike_name }}</span>
+            <div class="card-image">
+                <img class="responsive-img center">
+                <!--Logic for checking image URL in review database-->
+                <!--FIX BUG ON INVALID URL!!!-->
+                {% if review.image_url %}
+                    <img src="{{ review.image_url }}">
+                    <!--If there is no URL then it uses a default image from the static folder-->
+                {% else %}
+                    <img src="static/images/jpg/default_bike.jpg">
+                {% endif %}
+            </div>
+                <span class="card-title">{{ review.bike_name }}</span>
                 <div class="card-content">
                     Model year: {{ review.model_year }}
                     Category: {{ review.category_name }} || 
-                    <span class="card-reviewer">Reviewed by: <i>{{ review.review_by }}</i></span> 
+                    <span class="card-reviewer">Review by: <i>{{ review.review_by }}</i></span> 
                 </div>
         </div>
-        <div class="card-content">
+        <div class="bike-review">
            "{{ review.bike_description }}"
+           <div class="recommend" >Recommends bike: {{ review.recommend.capitalize() }} </div>
         </div>
     </div>
 
