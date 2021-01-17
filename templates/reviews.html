@@ -2,5 +2,17 @@
 {% block content %}
 
     <h3 class="light-blue-text text-darken-4 center-align">Reviews</h3>
+
+    {% for review in reviews %}
+    <div>
+    <p>Category: {{ review.category_name }}</p>
+    <p>Bike: {{ review.bike_name }}</p>
+    <p>Electric?: {{ review.is_electric }} </p>
+    <p>Model year:{{ review.model_year }}</p>
+    <p>Review: {{review.bike_description }}</p>
+    <p>Reviewed by: {{ review.review_by }}</p>
+    </div>
+
+    {% endfor %}
     
 {% endblock %}
