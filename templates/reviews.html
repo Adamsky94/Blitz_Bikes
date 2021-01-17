@@ -1,33 +1,34 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div></div>
+    <h3 class="text-black center-align">Reviews</h3>
 
+  <div id="content" class="row center">
+  {% for review in reviews %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">Reviews</h3>
-
-    {% for review in reviews %}
-
-    
-  <div class="row center">
-    <div class="col s12 m7">
-      <div class="card large">
+    <div class="col s12 m6 l4">
+      <div class="card small">
         <div class="card-image">
           <img class="responsive-img center" src="static/images/jpg/default_bike.jpg">
         </div>
-        <div class="card-content">
           <span class="card-title">{{ review.bike_name }}</span>
-            Model year: {{ review.model_year }}
-            Category: {{ review.category_name }} | 
-           Reviewed by: <i>{{ review.review_by }}</i>
+                <div class="card-content">
+                    Model year: {{ review.model_year }}
+                    Category: {{ review.category_name }} || 
+                    <span class="card-reviewer">Reviewed by: <i>{{ review.review_by }}</i></span> 
+                </div>
         </div>
-        <div class="card-action">
-             "{{review.bike_description }}"
+        <div class="card-content">
+           "{{ review.bike_description }}"
         </div>
-      </div>
     </div>
+
+  {% endfor %}
+
   </div>
 
-    {% endfor %}
+  
     
      
 
