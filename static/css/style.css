@@ -8,7 +8,17 @@
 
 header a.brand-logo {
     font-family: Germania One, Georgia, 'Times New Roman', Times, serif;
-    padding-left: 15px;
+    padding:  0 15px;
+}
+
+header a.brand-logo:hover,
+.footer-link:hover {
+    color: #000;
+    transition: 0.3s;
+}
+
+.footer-link {
+    color: white;
 }
 
 /*Scrollbar code from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp*/
@@ -88,7 +98,7 @@ img.responsive-img {
     font-weight: 700;
 }
 
-.row#content {
+.p-b {
     margin-bottom: 0;
     padding-bottom: 50px;
 }
