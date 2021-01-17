@@ -45,6 +45,7 @@ header a.brand-logo {
 .container__index h1 {
     font-family: Germania One;
     color: #d60000;
+    padding-top: 5rem;
     text-shadow:
         -1px 1px 2px #000,
         1px 1px 2px #000,
@@ -79,7 +80,11 @@ img.responsive-img {
     max-width: 100%;
 }
 
-span.card-title {
+.card .card-title {
+    font-weight: 400;
+}
+
+.bike-review {
     font-weight: 700;
 }
 
