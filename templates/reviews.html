@@ -9,14 +9,13 @@
     <div class="col s12 m6 l4">
       <div class="card small">
             <div class="card-image">
-                <img class="responsive-img center">
                 <!--Logic for checking image URL in review database-->
                 <!--FIX BUG ON INVALID URL!!!-->
                 {% if review.image_url %}
-                    <img src="{{ review.image_url }}">
+                    <img data-zoomable src="{{ review.image_url }}" />
                     <!--If there is no URL then it uses a default image from the static folder-->
                 {% else %}
-                    <img src="static/images/jpg/default_bike.jpg">
+                    <img src="static/images/jpg/default_bike.jpg" />
                 {% endif %}
             </div>
                 <span class="card-title">{{ review.bike_name }}</span>
@@ -33,11 +32,6 @@
     </div>
 
   {% endfor %}
-
   </div>
-
-  
-    
-     
 
 {% endblock %}
