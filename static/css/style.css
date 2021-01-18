@@ -99,3 +99,9 @@ header a.brand-logo:hover,
     margin-bottom: 0;
     padding-bottom: 50px;
 }
+
+/*Flash messages*/
+
+.flashes h5 {
+    line-height: 2;
+}
