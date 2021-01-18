@@ -15,10 +15,16 @@
     </head>
     <body>
 
-        <div class="container__index">
+        <div class="container__index center">
             <h1>Blitz Bikes
                 <span>Bombardment of Biking Reviews</span>
             </h1>
+
+            <div class="bg-video">
+                    <video class="bg-video__content" autoplay muted loop>
+                        <source src="static/vid/bg_vid.mp4" type="video/mp4" />
+                    </video>
+            </div>
             
             <!--Enter Site button-->
             <a href="{{ url_for('get_reviews') }}">

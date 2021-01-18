@@ -41,17 +41,6 @@ header a.brand-logo:hover,
   background: #900000;
 }
 
-.container__index {
-    text-align: center;
-    background-image:linear-gradient(45deg, rgb(122, 122, 122) 0 50%, rgb(122, 122, 122)), url(../images/jpg/index_bg.jpg);
-    background-blend-mode: screen;
-    min-height: 100vh;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 .container__index h1 {
     font-family: Germania One;
     color: #d60000;
@@ -67,13 +56,26 @@ header a.brand-logo:hover,
     display: block;
     color: #fff;
     font-size: 65%;
-}
-
-.container__index h1 span {
-    
     font-weight: 400;
 }
 
+/*Index landing video settings */
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+    opacity: .15;
+    overflow: hidden;}
+
+.bg-video__content{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+/* Background image setting across all pages */
 .page_bg {
     background-image: linear-gradient(45deg, rgb(230, 230, 230) 0 50%, rgb(230, 230, 230)), url("../images/jpg/page_bg.jpg");
     background-blend-mode: screen;
@@ -83,7 +85,6 @@ header a.brand-logo:hover,
 }
 
 /* card settings */
-
 .card .card-title {
     font-weight: 400;
 }
@@ -92,6 +93,8 @@ header a.brand-logo:hover,
     font-weight: 700;
 }
 
+/* Helpers */
+/* padding-bottom*/
 .p-b {
     margin-bottom: 0;
     padding-bottom: 50px;
