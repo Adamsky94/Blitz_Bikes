@@ -6,6 +6,8 @@
 
         <!-- Materialize Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+        <!--Animate.css CDN-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <!--My custom CSS-->
         <link rel="stylesheet" href="static/css/style.css" type="text/css" />
 
@@ -14,25 +16,24 @@
         <title>Blitz Bikes | Bombardment of Biking Reviews</title>
     </head>
     <body>
-
         <div class="container__index center">
-            <h1>Blitz Bikes
+            <h1 class="animate__animated animate__slideInDown">
+                Blitz Bikes
                 <span>Bombardment of Biking Reviews</span>
             </h1>
-
+            <!--Background video-->
             <div class="bg-video">
-                    <video class="bg-video__content" autoplay muted loop>
-                        <source src="static/vid/bg_vid.mp4" type="video/mp4" />
-                    </video>
+                <video class="bg-video__content" autoplay muted loop>
+                    <source src="static/vid/bg_vid.mp4" type="video/mp4" />
+                </video>
             </div>
-            
+
             <!--Enter Site button-->
             <a href="{{ url_for('get_reviews') }}">
-                <button class="btn-large red darken-4 z-depth-5">
+                <button class="btn-large red darken-4 z-depth-5 animate__animated animate__slideInUp">
                     Enter Site
                 </button>
             </a>
         </div>
-
     </body>
 </html>
