@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 
-<h3 class="text-black center-align p-t">Our Community's Reviews</h3>
+<h3 class="text-black center-align">Our Community's Reviews</h3>
 
 <div class="row center p-b">
     Here's what YOU had to say about your experiences with bikes and various cycling equipment
@@ -24,11 +24,11 @@
             <span class="card-title">{{ review.bike_name }}</span>
             <div class="card-content">
                 Model year: {{ review.model_year }} Category: {{ review.category_name }} ||
-                <span class="card-reviewer">Review by: <i>{{ review.review_by }}</i></span>
+                <span class="card-reviewer">Review by: <i>{{ review.username }}</i></span>
             </div>
         </div>
         <div class="bike-review">
-            "{{ review.bike_description }}"
+            " {{ review.bike_description }} "
             <div class="recommend">Recommends bike: <span>{{ review.recommend.capitalize() }}</span></div>
         </div>
     </div>
