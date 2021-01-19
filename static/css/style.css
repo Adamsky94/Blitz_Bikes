@@ -55,6 +55,48 @@ footer {
   background: #900000;
 }
 
+/* Return to top button code from @rdallaire on CodePen https://codepen.io/rdallaire/pen/apoyx */
+#return-to-top {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+    display: block;
+    text-decoration: none;
+    border-radius: 15px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 11px;
+    top: 8px;
+    font-size: 22px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+/* Code for fixing hover state for touchscreen devices https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c */
+@media (hover: hover) and (pointer: fine) {
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+    width: 40px;
+    height: 50px;
+}
+#return-to-top:hover i {
+    top: 5px;
+}
+}
+/*Index page setting*/
 .container__index h1 {
     font-family: Germania One;
     color: #d60000;
