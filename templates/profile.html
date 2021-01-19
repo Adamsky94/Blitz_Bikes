@@ -1,13 +1,11 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-    <div class="row">
+    <div class="row p-t p-b">
         <div class="col s12 m8 offset-m2">
-            <div class="card-panel">
-                <h4 class="center-align text-darken 4">Hello There!</h4>
-                <h5 class="center-align text-darken 4">
-                    {{ username }}'s Profile
-                </h5>
+            <div class="profile profile-bg z-depth-2 valign-wrapper">
+                <h3 class="hello text-darken 4">Hello there {{ username }}</h3>
             </div>
         </div>
     </div>
