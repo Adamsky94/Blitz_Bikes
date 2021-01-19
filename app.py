@@ -82,6 +82,14 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+# remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
@@ -94,17 +102,25 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/logout")
-def logout():
-    # remove user from session cookie
-    flash("You have been logged out")
-    session.pop("user")
-    return redirect(url_for("login"))
 
-
-@app.route("/add_review")
+@app.route("/add_review", methods=["GET", "POST"])
 def add_review():
-    return render_template("add_review.html")
+    if request.method == "POST":
+        review = {
+            "category_name": request.form.get("category_name"),
+            "bike_name": request.form.get("bike_name"),
+            "model_year": request.form.get("model_year"),
+            "image_url":request.form.get("image_url"),
+            "bike_description": request.form.get("bike_description"),
+            "recommend": request.form.get("recommend"),
+            "username": session["user"]
+        }
+        mongo.db.reviews.insert_one(review)
+        flash("Thank you for your review")
+        return redirect(url_for("add_review"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_review.html", categories=categories)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,84 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="light-blue-text text-darken-4 center-align">Add review</h3>
+    <h3 class="text-darken-4 center-align">Add review</h3>
+    <div class="container" >
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for('add_review') }}">
+            <!-- category selection -->
+			<div class="row">
+				<div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+					<select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Categories</option>
+                        <!--Sorting categories in alphabetical order-->
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+					<label for="category_name">Select Category</label>
+				</div>
+            </div>
+            
+            <!-- bike name -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                    <input id="bike_name" name="bike_name" minlength="3" maxlength="30"
+                        type="text" class="validate" required>
+                    <label for="bike_name">Bike Name</label>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="model_year" name="model_year" minlength="4"
+                        maxlength="4" class="materialize-textarea validate" required></textarea>
+                    <label for="model_year">Model year</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="image_url" name="image_url" minlength="10"
+                        maxlength="500" class="materialize-textarea validate"></textarea>
+                    <label for="image_url">Image URL</label>
+                </div>
+            </div>
+
+            <!-- review description -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="bike_description" name="bike_description" data-length="800" minlength="20"
+                        maxlength="800" class="materialize-textarea validate" required></textarea>
+                    <label for="bike_description">Type your review here</label>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                    <textarea id="recommend" name="recommend" minlength="2"
+                        maxlength="3" class="materialize-textarea validate" required></textarea>
+                    <label for="recommend">Would you recommend this bike? Yes/No</label>
+                </div>
+            </div>
+    
+            
+            <!-- submit button -->
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large red darken-4 text-shadow">
+                        Add review <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
     
 {% endblock %}
