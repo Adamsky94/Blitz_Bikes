@@ -100,7 +100,7 @@ footer {
 .container__index h1 {
     font-family: Germania One;
     color: #d60000;
-    padding-top: 5rem;
+    padding-top: 40px;
     text-shadow:
         -1px 1px 2px #000,
         1px 1px 2px #000,
@@ -146,6 +146,12 @@ footer {
     font-weight: 400;
 }
 
+.card-panel {
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
 .recommend {
     font-style: italic;
 }
@@ -187,4 +193,39 @@ footer {
 
 .flashes h5 {
     line-height: 2;
+}
+
+/*Overwriting Materialize CSS*/
+input:not([type]):focus:not([readonly]), 
+input[type=text]:not(.browser-default):focus:not([readonly]), 
+input[type=password]:not(.browser-default):focus:not([readonly]), 
+input[type=email]:not(.browser-default):focus:not([readonly]), 
+input[type=url]:not(.browser-default):focus:not([readonly]), 
+input[type=time]:not(.browser-default):focus:not([readonly]), 
+input[type=date]:not(.browser-default):focus:not([readonly]), 
+input[type=datetime]:not(.browser-default):focus:not([readonly]), 
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]), 
+input[type=tel]:not(.browser-default):focus:not([readonly]), 
+input[type=number]:not(.browser-default):focus:not([readonly]), 
+input[type=search]:not(.browser-default):focus:not([readonly]), 
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid rgb(0, 0, 0);
+    -webkit-box-shadow: 0 1px 0 0 rgb(0, 0, 0);
+    box-shadow: 0 1px 0 0 rgb(0, 0, 0);
+}
+
+input:not([type]):focus:not([readonly])+label, 
+input[type=text]:not(.browser-default):focus:not([readonly])+label, 
+input[type=password]:not(.browser-default):focus:not([readonly])+label, 
+input[type=email]:not(.browser-default):focus:not([readonly])+label, 
+input[type=url]:not(.browser-default):focus:not([readonly])+label, 
+input[type=time]:not(.browser-default):focus:not([readonly])+label, 
+input[type=date]:not(.browser-default):focus:not([readonly])+label, 
+input[type=datetime]:not(.browser-default):focus:not([readonly])+label, 
+input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, 
+input[type=tel]:not(.browser-default):focus:not([readonly])+label, 
+input[type=number]:not(.browser-default):focus:not([readonly])+label, 
+input[type=search]:not(.browser-default):focus:not([readonly])+label, 
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: rgb(0, 0, 0);
 }
