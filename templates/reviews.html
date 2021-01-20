@@ -41,6 +41,10 @@
             </div>
             <span class="card-title">{{ review.bike_name }}</span>
             <div class="card-content">
+                {% if session.user|lower == review.username|lower %}
+                        <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small red darken-4">Delete</a>
+                        <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small light-blue darken-2">Edit</a>
+                {% endif %}
                 Model year: {{ review.model_year }} Category: {{ review.category_name }} ||
                 <span class="card-reviewer">Review by: <i>{{ review.username }}</i></span>
             </div>

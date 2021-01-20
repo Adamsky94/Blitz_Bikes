@@ -37,6 +37,34 @@ def search():
     return render_template("reviews.html", reviews=reviews)
 
 
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "bike_name": request.form.get("bike_name"),
+            "model_year": request.form.get("model_year"),
+            "image_url":request.form.get("image_url"),
+            "bike_description": request.form.get("bike_description"),
+            "recommend": request.form.get("recommend"),
+            "username": session["user"]
+        }
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
+        flash("Your review has been updated")
+        return redirect(url_for("get_reviews"))
+
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_review.html", review=review, categories=categories)
+
+
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Review Successfully Deleted")
+    return redirect(url_for("get_reviews"))
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
