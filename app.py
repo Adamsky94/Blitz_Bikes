@@ -68,7 +68,7 @@ def edit_review(review_id):
 def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Review Successfully Deleted")
-    return redirect(url_for("get_reviews"))
+    return redirect(url_for("user_reviews"))
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -158,7 +158,7 @@ def add_review():
         }
         mongo.db.reviews.insert_one(review)
         flash("Thank you for your review")
-        return redirect(url_for("add_review"))
+        return redirect(url_for("user_reviews"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_review.html", categories=categories)
