@@ -5,7 +5,11 @@
     <div class="row p-t p-b">
         <div class="col s12 m8 offset-m2">
             <div class="profile profile-bg z-depth-2 valign-wrapper">
-                <h3 class="hello text-darken 4">Hello there {{ username }}</h3>
+                {% if session.user|lower == "admin"|lower %}
+                    <h3 class="hello text-darken 4">Welcome back /{{ username }}/</h3>
+                {% else %}
+                    <h3 class="hello text-darken 4">Hello there {{ username }}</h3>
+                {% endif %}
             </div>
         </div>
     </div>
