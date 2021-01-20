@@ -76,7 +76,7 @@
                         maxlength="3" class="materialize-textarea validate" required>
                     {{- review.recommend -}}
                     </textarea>
-                    <label for="recommend">Would you recommend this bike? Yes/No</label>
+                    <label for="recommend">Do you recommend? Yes/No</label>
                 </div>
             </div>
     
@@ -85,7 +85,7 @@
             <div class="row">
                 <div class="col s12 center-align">
                      <!-- cancel button -->
-                    <a href="{{ url_for('get_reviews') }}" class="btn-large grey darken-4 text-shadow">
+                    <a href="{{ url_for('user_reviews') }}" class="btn-large grey darken-4 text-shadow">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
                     <button type="submit" class="btn-large red darken-4 text-shadow">

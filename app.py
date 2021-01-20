@@ -30,6 +30,12 @@ def get_reviews():
     return render_template("reviews.html", reviews=reviews)
 
 
+@app.route("/user_reviews")
+def user_reviews():
+    reviews = mongo.db.reviews.find()
+    return render_template("user_reviews.html", reviews=reviews)
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -51,7 +57,7 @@ def edit_review(review_id):
         }
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
         flash("Your review has been updated")
-        return redirect(url_for("get_reviews"))
+        return redirect(url_for("user_reviews"))
 
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
