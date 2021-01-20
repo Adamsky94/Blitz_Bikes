@@ -6,6 +6,11 @@ $(document).ready(function(){
     $("select").formSelect();
 
      $('textarea#bike_description').characterCounter();
+     /* Year Picker documentation on https://www.codehim.com/date-time/jquery-datepicker-year-only/ */
+     $(".yearpicker").yearpicker({
+      startYear: 1900,
+      endYear: 2021,
+   });
 
     /*MediumZoom Javascript https://github.com/francoischalifour/medium-zoom */
     mediumZoom(document.querySelectorAll('[data-zoomable]'),{

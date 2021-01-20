@@ -31,7 +31,6 @@
         <div class="card small">
             <div class="card-image">
                 <!--Logic for checking image URL in review database-->
-                <!--FIX BUG ON INVALID URL!!!-->
                 {% if review.image_url %}
                 <img data-zoomable src="{{ review.image_url }}" />
                 <!--If there is no URL then it uses a default image from the static folder-->
