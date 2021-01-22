@@ -2,13 +2,13 @@
 
 {% block content %}
 
-    <div class="row p-t p-b animate__animated animate__zoomIn">
+    <div class="row p-t p-b">
         <div class="col s12 m8 offset-m2">
             <div class="profile profile-bg z-depth-2 valign-wrapper">
                 {% if session.user|lower == "admin"|lower %}
-                    <h3 class="hello text-darken 4">Welcome back /{{ username }}/</h3>
+                    <h3 class="hello text-darken 4 animate__animated animate__zoomIn">Welcome back /{{ username }}/</h3>
                 {% else %}
-                    <h3 class="hello text-darken 4">Hello there {{ username }}</h3>
+                    <h3 class="hello text-darken 4 animate__animated animate__zoomIn">Hello there, {{ username }}!</h3>
                 {% endif %}
             </div>
         </div>

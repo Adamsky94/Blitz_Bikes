@@ -7,7 +7,7 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(45deg, rgb(230, 230, 230) 0 50%, rgb(230, 230, 230)), url("/static/images/jpg/page_bg.jpg");
