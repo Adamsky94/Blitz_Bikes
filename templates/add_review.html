@@ -56,23 +56,25 @@
                     <label for="bike_description">Type your review here</label>
                 </div>
             </div>
-
-
+            <!--Recommendation-->
             <div class="row">
-                <div class="input-field col s12">
+				<div class="input-field col s12">
                     <i class="fas fa-theater-masks prefix text-darken-4"></i>
-                    <textarea id="recommend" name="recommend" minlength="2"
-                        maxlength="3" class="materialize-textarea validate" required></textarea>
-                    <label for="recommend">Do you recommend it? Yes/No</label>
-                </div>
+					<select id="recommend" name="recommend" class="validate" required>
+                        <option value="" disabled selected>Would you recommend it to others?</option>
+                        <option value="Yes" >Yes</option>
+                        <option value="No" >No</option>
+                        <option value="Unsure" >Unsure</option>
+                    </select>
+					<label for="recommend">Recommendation</label>
+				</div>
             </div>
-    
-            
+
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
                     <button type="submit" class="btn-large red darken-4 text-shadow">
-                        Add review <i class="fas fa-plus-square right"></i>
+                        Add review <i class="fas fa-plus right"></i>
                     </button>
                 </div>
             </div>

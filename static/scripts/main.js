@@ -5,9 +5,13 @@ $(document).ready(function(){
 
     $("select").formSelect();
 
-     $('textarea#bike_description').characterCounter();
-     /* Year Picker documentation on https://www.codehim.com/date-time/jquery-datepicker-year-only/ */
-     $(".yearpicker").yearpicker({
+    $('textarea#bike_description').characterCounter();
+
+    /*Dropdown validation code from https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown*/
+    $("select[required]").css({display: "block", height: 0, padding: 0, width: 0, position: 'absolute'});
+     
+    /* Year Picker documentation on https://www.codehim.com/date-time/jquery-datepicker-year-only/ */
+    $(".yearpicker").yearpicker({
       startYear: 1900,
       endYear: 2021,
    });

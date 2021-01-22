@@ -56,7 +56,7 @@ def edit_review(review_id):
             "username": session["user"]
         }
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
-        flash("Your review has been updated")
+        flash("You have updated the review")
         return redirect(url_for("user_reviews"))
 
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
@@ -189,7 +189,7 @@ def edit_category(category_id):
             "category_name": request.form.get("category_name")
         }
         mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
-        flash("Category Successfully Updated")
+        flash("Category updated")
         return redirect(url_for("get_categories"))
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})

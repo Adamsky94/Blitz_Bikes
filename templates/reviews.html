@@ -38,7 +38,7 @@
                 <span class="card-title">{{ review.bike_name }}</span>
                 <div class="card-content">
                     Model year: {{ review.model_year }} Category: {{ review.category_name }} ||
-                    <span class="card-reviewer">Review by: <i>{{ review.username }}</i></span>
+                    <span class="card-reviewer">Rider: <i>{{ review.username }}</i></span>
                 </div>
             </div>
             <div class="bike-review">
@@ -48,5 +48,6 @@
         </div>
         {% endfor %}
     </div>
-    {% endblock %}
+
+{% endblock %}
 </div>
