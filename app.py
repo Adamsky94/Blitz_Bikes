@@ -23,13 +23,16 @@ mongo = PyMongo(app)
 def get_index():
     return render_template("index.html")
 
+# Check This code, fix category and user_id
+
 
 @app.route("/get_reviews")
 def get_reviews():
     reviews = mongo.db.reviews.find()
     for review in reviews:
         try:
-            review["category_name"] = mongo.db.categories.find_one({"id":ObjectId(category_id)})["category_name"]
+            review["category_name"] = mongo.db.categories.find_one(
+                {"id": ObjectId()})["category_name"]
         except:
             pass
     return render_template("reviews.html", reviews=reviews)
@@ -51,7 +54,8 @@ def search():
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
-        category_id = mongo.db.categories.find_one({"category_name": request.form.get("category_name")})["_id"]
+        category_id = mongo.db.categories.find_one(
+            {"category_name": request.form.get("category_name")})["_id"]
         review = {
             "category_name": ObjectId(category_id),
             "bike_name": request.form.get("bike_name"),
@@ -87,7 +91,8 @@ def edit_review(review_id):
 
     review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_review.html", review=review, categories=categories)
+    return render_template(
+        "edit_review.html", review=review, categories=categories)
 
 
 @app.route("/delete_review/<review_id>")
