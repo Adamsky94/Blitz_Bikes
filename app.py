@@ -27,6 +27,11 @@ def get_index():
 @app.route("/get_reviews")
 def get_reviews():
     reviews = mongo.db.reviews.find()
+    for review in reviews:
+        try:
+            review["category_name"] = mongo.db.categories.find_one({"id":ObjectId(category_id)})["category_name"]
+        except:
+            pass
     return render_template("reviews.html", reviews=reviews)
 
 
@@ -41,6 +46,27 @@ def search():
     query = request.form.get("query")
     reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
     return render_template("reviews.html", reviews=reviews)
+
+
+@app.route("/add_review", methods=["GET", "POST"])
+def add_review():
+    if request.method == "POST":
+        category_id = mongo.db.categories.find_one({"category_name": request.form.get("category_name")})["_id"]
+        review = {
+            "category_name": ObjectId(category_id),
+            "bike_name": request.form.get("bike_name"),
+            "model_year": request.form.get("model_year"),
+            "image_url": request.form.get("image_url"),
+            "bike_description": request.form.get("bike_description"),
+            "recommend": request.form.get("recommend"),
+            "username": session["user"]
+        }
+        mongo.db.reviews.insert_one(review)
+        flash("Thank you for your review")
+        return redirect(url_for("user_reviews"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_review.html", categories=categories)
 
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
@@ -141,26 +167,6 @@ def profile(username):
         return render_template("profile.html", username=username)
 
     return redirect(url_for("login"))
-
-
-@app.route("/add_review", methods=["GET", "POST"])
-def add_review():
-    if request.method == "POST":
-        review = {
-            "category_name": request.form.get("category_name"),
-            "bike_name": request.form.get("bike_name"),
-            "model_year": request.form.get("model_year"),
-            "image_url": request.form.get("image_url"),
-            "bike_description": request.form.get("bike_description"),
-            "recommend": request.form.get("recommend"),
-            "username": session["user"]
-        }
-        mongo.db.reviews.insert_one(review)
-        flash("Thank you for your review")
-        return redirect(url_for("user_reviews"))
-
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_review.html", categories=categories)
 
 
 @app.route("/get_categories")
