@@ -50,7 +50,7 @@ def edit_review(review_id):
             "category_name": request.form.get("category_name"),
             "bike_name": request.form.get("bike_name"),
             "model_year": request.form.get("model_year"),
-            "image_url":request.form.get("image_url"),
+            "image_url": request.form.get("image_url"),
             "bike_description": request.form.get("bike_description"),
             "recommend": request.form.get("recommend"),
             "username": session["user"]
@@ -105,11 +105,11 @@ def login():
 
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                    existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        return redirect(url_for(
-                            "profile", username=session["user"]))
+            if check_password_hash(existing_user["password"],
+                                   request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                return redirect(url_for(
+                    "profile", username=session["user"]))
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
@@ -125,7 +125,7 @@ def login():
 
 @app.route("/logout")
 def logout():
-# remove user from session cookie
+    # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
@@ -143,7 +143,6 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-
 @app.route("/add_review", methods=["GET", "POST"])
 def add_review():
     if request.method == "POST":
@@ -151,7 +150,7 @@ def add_review():
             "category_name": request.form.get("category_name"),
             "bike_name": request.form.get("bike_name"),
             "model_year": request.form.get("model_year"),
-            "image_url":request.form.get("image_url"),
+            "image_url": request.form.get("image_url"),
             "bike_description": request.form.get("bike_description"),
             "recommend": request.form.get("recommend"),
             "username": session["user"]

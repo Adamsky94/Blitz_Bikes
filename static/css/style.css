@@ -7,7 +7,8 @@
 }
 
 body {
-    min-height: 100vh;
+    width:100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(45deg, rgb(230, 230, 230) 0 50%, rgb(230, 230, 230)), url("/static/images/jpg/page_bg.jpg");
@@ -120,21 +121,39 @@ footer {
 }
 
 /*Index landing video settings */
+/*Help in the code from https://redstapler.co/responsive-css-video-background/ */
 .bg-video {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
     z-index: -10;
-    opacity: .15;
-    overflow: hidden;}
-
-.bg-video__content{
-    height: 100%;
-    width: 100%;
     object-fit: cover;
 }
+
+.bg-video__content{
+    position:fixed;
+    z-index: -1;
+    opacity: .15;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .bg-video__content {
+        width:100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    .bg-video__content { 
+        width:auto;
+        height: 100%;
+    }
+}
+@media (max-width: 767px) {
+    .bg-video__content {
+        display: none;
+    }
+}
+
 /* Background image setting across all pages */
 .page_bg {
     background-image: linear-gradient(45deg, rgb(230, 230, 230) 0 50%, rgb(230, 230, 230)), url("/static/images/jpg/page_bg.jpg");
