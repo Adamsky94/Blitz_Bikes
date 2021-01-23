@@ -32,11 +32,8 @@ def get_reviews():
     for review in reviews:
         review["category_name"] = mongo.db.categories.find_one(
             {"_id": review["category_name"]})["category_name"]
-        try:
-            review["username"] = mongo.db.users.find_one(
-                {"_id": review["username"]})["username"]
-        except:
-            pass
+        review["username"] = mongo.db.users.find_one(
+            {"_id": review["username"]})["username"]
     return render_template("reviews.html", reviews=reviews)
 
 # Refactoring code after 2nd Mentor session with Antonio Rodrigez
@@ -48,11 +45,8 @@ def user_reviews():
     for review in reviews:
         review["category_name"] = mongo.db.categories.find_one(
             {"_id": review["category_name"]})["category_name"]
-        try:
-            review["username"] = mongo.db.users.find_one(
-                {"_id": review["username"]})["username"]
-        except:
-            pass
+        review["username"] = mongo.db.users.find_one(
+            {"_id": review["username"]})["username"]
     return render_template("user_reviews.html", reviews=reviews)
 
 
@@ -115,6 +109,11 @@ def delete_review(review_id):
 def search():
     query = request.form.get("query")
     reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+    for review in reviews:
+        review["category_name"] = mongo.db.categories.find_one(
+            {"_id": review["category_name"]})["category_name"]
+        review["username"] = mongo.db.users.find_one(
+            {"_id": review["username"]})["username"]
     if reviews == []:
         flash("No results? Impossible! Perhaps the archives are incomplete...")
     return render_template("reviews.html", reviews=reviews)
