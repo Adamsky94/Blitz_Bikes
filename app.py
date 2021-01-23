@@ -23,32 +23,37 @@ mongo = PyMongo(app)
 def get_index():
     return render_template("index.html")
 
-# Check This code, fix category and user_id
+# Check This code
 
 
 @app.route("/get_reviews")
 def get_reviews():
-    reviews = mongo.db.reviews.find()
+    reviews = list(mongo.db.reviews.find())
     for review in reviews:
+        review["category_name"] = mongo.db.categories.find_one(
+            {"_id": review["category_name"]})["category_name"]
         try:
-            review["category_name"] = mongo.db.categories.find_one(
-                {"id": ObjectId()})["category_name"]
+            review["username"] = mongo.db.users.find_one(
+                {"_id": review["username"]})["username"]
         except:
             pass
     return render_template("reviews.html", reviews=reviews)
 
+# Refactoring code after 2nd Mentor session with Antonio Rodrigez
+
 
 @app.route("/user_reviews")
 def user_reviews():
-    reviews = mongo.db.reviews.find()
+    reviews = list(mongo.db.reviews.find())
+    for review in reviews:
+        review["category_name"] = mongo.db.categories.find_one(
+            {"_id": review["category_name"]})["category_name"]
+        try:
+            review["username"] = mongo.db.users.find_one(
+                {"_id": review["username"]})["username"]
+        except:
+            pass
     return render_template("user_reviews.html", reviews=reviews)
-
-
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
-    return render_template("reviews.html", reviews=reviews)
 
 
 @app.route("/add_review", methods=["GET", "POST"])
@@ -56,6 +61,7 @@ def add_review():
     if request.method == "POST":
         category_id = mongo.db.categories.find_one(
             {"category_name": request.form.get("category_name")})["_id"]
+        user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         review = {
             "category_name": ObjectId(category_id),
             "bike_name": request.form.get("bike_name"),
@@ -63,7 +69,7 @@ def add_review():
             "image_url": request.form.get("image_url"),
             "bike_description": request.form.get("bike_description"),
             "recommend": request.form.get("recommend"),
-            "username": session["user"]
+            "username": ObjectId(user_id)
         }
         mongo.db.reviews.insert_one(review)
         flash("Thank you for your review")
@@ -76,14 +82,17 @@ def add_review():
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     if request.method == "POST":
+        category_id = mongo.db.categories.find_one(
+            {"category_name": request.form.get("category_name")})["_id"]
+        user_id = mongo.db.users.find_one({"username": session["user"]})["_id"]
         submit = {
-            "category_name": request.form.get("category_name"),
+            "category_name": ObjectId(category_id),
             "bike_name": request.form.get("bike_name"),
             "model_year": request.form.get("model_year"),
             "image_url": request.form.get("image_url"),
             "bike_description": request.form.get("bike_description"),
             "recommend": request.form.get("recommend"),
-            "username": session["user"]
+            "username": ObjectId(user_id)
         }
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
         flash("You have updated the review")
@@ -100,6 +109,13 @@ def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Review Successfully Deleted")
     return redirect(url_for("user_reviews"))
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+    return render_template("reviews.html", reviews=reviews)
 
 
 @app.route("/register", methods=["GET", "POST"])
