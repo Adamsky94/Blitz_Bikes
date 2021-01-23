@@ -115,6 +115,8 @@ def delete_review(review_id):
 def search():
     query = request.form.get("query")
     reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
+    if reviews == []:
+        flash("No results? Impossible! Perhaps the archives are incomplete...")
     return render_template("reviews.html", reviews=reviews)
 
 
