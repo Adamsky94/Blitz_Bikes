@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="bike-review">
-                " {{ review.bike_description }} "
+                {{ review.bike_description }}
                 <div class="recommend">Did you recommend it? : <span>{{ review.recommend }}</span></div>
             </div>
             {% if session.user|lower == review.username|lower %}

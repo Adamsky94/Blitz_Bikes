@@ -183,6 +183,22 @@ footer {
     font-weight: 700;
 }
 
+/*Styling for placing the quote symbol on review card*/
+.bike-review{
+    position: relative;
+}
+
+.bike-review::before{
+    content: "\201C";
+    position: absolute;
+    top: -6rem;
+    left: 1rem;
+    line-height: 1;
+    font-size: 12rem;
+    color: lightgray;
+    font-family: sans-serif;
+}
+
 /*profile card*/
 .profile {
     height: 20vh;
