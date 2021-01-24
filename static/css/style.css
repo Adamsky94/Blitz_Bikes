@@ -1,30 +1,45 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&family=Germania+One&display=swap');
 
 * {
     font-family: Dosis, Georgia, 'Times New Roman', Times, serif;
-    font-weight: 400;
     font-size: 1.2rem;
+    font-weight: 400;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background-image: linear-gradient(45deg, rgb(230, 230, 230) 0 50%, rgb(230, 230, 230)), url("/static/images/jpg/page_bg.jpg");
+    background-attachment: fixed;
     background-blend-mode: screen;
+    background-image: -o-linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)), url("/static/images/jpg/page_bg.jpg");
+    background-image: linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)), url("/static/images/jpg/page_bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 header a.brand-logo {
-    font-family: Germania One, Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Germania One', Georgia, 'Times New Roman', Times, serif;
     padding:  0 15px;
 }
 
 header a.brand-logo:hover,
 .footer-link:hover {
     color: #000;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
     transition: 0.3s;
 }
 
@@ -33,10 +48,6 @@ header a.brand-logo:hover,
 }
 footer {
     margin-top: auto;
-}
-
-#smallprint {
-    font-size: 0.9rem;
 }
 
 /*Scrollbar code from https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp*/
@@ -102,7 +113,7 @@ footer {
 }
 /*Index page setting*/
 .container__index h1 {
-    font-family: Germania One;
+    font-family: 'Germania One';
     color: #d60000;
     padding-top: 40px;
     text-shadow:
@@ -126,7 +137,8 @@ footer {
     top: 0;
     left: 0;
     z-index: -10;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .bg-video__content{
@@ -155,7 +167,8 @@ footer {
 
 /* Background image setting across all pages */
 .page_bg {
-    background-image: linear-gradient(45deg, rgb(230, 230, 230) 0 50%, rgb(230, 230, 230)), url("/static/images/jpg/page_bg.jpg");
+    background-image: -o-linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)), url("/static/images/jpg/page_bg.jpg");
+    background-image: linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)), url("/static/images/jpg/page_bg.jpg");
     background-blend-mode: screen;
     background-repeat: no-repeat;
     background-size: cover;
@@ -168,12 +181,6 @@ footer {
     font-weight: 400;
 }
 
-#searchbox {
-    margin-top: 0;
-    padding-top: 10px;
-    padding-bottom: 0;
-}
-
 .recommend {
     font-style: italic;
     font-size: 1.5rem;
@@ -183,14 +190,29 @@ footer {
     font-weight: 700;
 }
 
+#searchbox {
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
 /*Styling for placing the quote symbol on review card*/
 .bike-review{
     position: relative;
     min-height: 17rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .bike-review::before{
@@ -214,7 +236,8 @@ footer {
 }
 
 .profile-bg {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.95) 0 50%, rgba(255, 251, 251, 0.95)), url("../images/jpg/user_bg.jpg");
+    background-image: -o-linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/user_bg.jpg");
+    background-image: linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/user_bg.jpg");
     background-blend-mode: screen;
     background-repeat: no-repeat;
     background-size: cover;
@@ -222,7 +245,8 @@ footer {
 
 /*categories card*/
 .category_bg {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.95) 0 50%, rgba(255, 251, 251, 0.95)), url("../images/jpg/category_bg.jpg");
+    background-image: -o-linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/category_bg.jpg");
+    background-image: linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/category_bg.jpg");
     background-blend-mode: screen;
     background-repeat: no-repeat;
     background-size: cover;
@@ -245,8 +269,11 @@ footer {
     padding-top: 12px;
 }
 
-/*Flash messages*/
+#smallprint {
+    font-size: 0.9rem;
+}
 
+/*Flash messages*/
 .flashes h5 {
     line-height: 2;
 }
@@ -304,4 +331,3 @@ textarea.materialize-textarea:focus:not([readonly])+label {
     min-height: 11rem;
  }
 }
-

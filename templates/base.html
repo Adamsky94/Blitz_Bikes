@@ -11,7 +11,7 @@
         <!--Animate.css CDN-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
         <!-- Year Picker CSS -->
-        <link rel="stylesheet" href="/static/css/yearpicker.css" type="text/css"/>
+        <link rel="stylesheet" href="/static/css/yearpicker.css" type="text/css" />
         <!--My custom CSS-->
         <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
         <!--yearpicker css from https://www.codehim.com/date-time/jquery-datepicker-year-only/ -->
@@ -30,60 +30,52 @@
                         <li><a href="{{ url_for('get_reviews') }}">Reviews</a></li>
                         {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                            {% if session.user|lower != "admin"|lower %}
-                                <li><a href="{{ url_for('user_reviews') }}">Your reviews</a></li>
-                            {% endif %}
-                            {% if session.user|lower == "admin"|lower %}
-                                <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                                <li><a href="{{ url_for('user_reviews') }}">Claimed reviews</a></li>
-                            {% endif %}
-                            <li><a href="{{ url_for('add_review') }}">Add review</a></li>
-                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                        {% if session.user|lower != "admin"|lower %}
+                        <li><a href="{{ url_for('user_reviews') }}">Your reviews</a></li>
+                        {% endif %} {% if session.user|lower == "admin"|lower %}
+                        <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                        <li><a href="{{ url_for('user_reviews') }}">Claimed reviews</a></li>
+                        {% endif %}
+                        <li><a href="{{ url_for('add_review') }}">Add review</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
-                            <li><a href="{{ url_for('login') }}">Log In</a></li>
-                            <li><a href="{{ url_for('register') }}">Register</a></li>
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a href="{{ url_for('register') }}">Register</a></li>
                         {% endif %}
                     </ul>
                 </div>
             </nav>
             <!--Mobile navigation-->
             <ul class="sidenav" id="mobile-demo">
-                 <li><a href="{{ url_for('get_reviews') }}">Reviews</a></li>
-                        {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                            {% if session.user|lower != "admin"|lower %}
-                                <li><a href="{{ url_for('user_reviews') }}">Your reviews</a></li>
-                            {% endif %}
-                            {% if session.user|lower == "admin"|lower %}
-                                <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
-                                <li><a href="{{ url_for('user_reviews') }}">Claimed reviews</a></li>
-                            {% endif %}
-                            <li><a href="{{ url_for('add_review') }}">Add review</a></li>
-                            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                        {% else %}
-                            <li><a href="{{ url_for('login') }}">Log In</a></li>
-                            <li><a href="{{ url_for('register') }}">Register</a></li>
-                        {% endif %}
+                <li><a href="{{ url_for('get_reviews') }}">Reviews</a></li>
+                {% if session.user %}
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                {% if session.user|lower != "admin"|lower %}
+                <li><a href="{{ url_for('user_reviews') }}">Your reviews</a></li>
+                {% endif %} {% if session.user|lower == "admin"|lower %}
+                <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
+                <li><a href="{{ url_for('user_reviews') }}">Claimed reviews</a></li>
+                {% endif %}
+                <li><a href="{{ url_for('add_review') }}">Add review</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                {% endif %}
             </ul>
         </header>
 
         <section>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h5 class="amber lighten-1 center-align">{{ message }}</h5>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+            <!-- flash messages -->
+            {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+            <div class="row flashes">
+                <h5 class="amber lighten-1 center-align">{{ message }}</h5>
+            </div>
+            {% endfor %} {% endif %} {% endwith %}
         </section>
 
         <main class="container-fluid page_bg">
-
             {% block content %} {% endblock %}
-            
         </main>
 
         <!-- Return to top button code from @rdallaire on CodePen https://codepen.io/rdallaire/pen/apoyx -->
@@ -109,8 +101,8 @@
             <div class="footer-copyright red darken-1 white-text center">
                 <div class="container">
                     © 2021 Blitz Bikes || Adam Kiss ||
-                        <a class="footer-link" href="https://www.linkedin.com/in/akgsz0912/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a class="footer-link" href="https://github.com/Adamsky94" target="_blank"><i class="fab fa-github"></i></a>
+                    <a class="footer-link" href="https://www.linkedin.com/in/akgsz0912/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a class="footer-link" href="https://github.com/Adamsky94" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </footer>

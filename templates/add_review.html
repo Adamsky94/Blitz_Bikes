@@ -1,30 +1,28 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-    <h3 class="text-darken-4 center-align p-b animate__animated animate__zoomIn">Add review</h3>
-    <div class="container" >
+<h3 class="text-darken-4 center-align p-b animate__animated animate__zoomIn">Add review</h3>
+<div class="container">
     <div class="row card-panel grey lighten-5">
         <form class="col s12" method="POST" action="{{ url_for('add_review') }}">
             <!-- category selection -->
-			<div class="row">
-				<div class="input-field col s12">
+            <div class="row">
+                <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
+                    <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Categories</option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
-					<label for="category_name">Select Category</label>
-				</div>
+                    <label for="category_name">Select Category</label>
+                </div>
             </div>
-            
+
             <!-- bike name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-font prefix text-darken-4"></i>
-                    <input id="bike_name" name="bike_name" minlength="3" maxlength="25"
-                        type="text" class="validate" required>
+                    <input id="bike_name" name="bike_name" minlength="3" maxlength="25" type="text" class="validate" required />
                     <label for="bike_name">Bike Name</label>
                 </div>
             </div>
@@ -32,8 +30,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="far fa-calendar-alt prefix text-darken-4"></i>
-                    <input type="number" id="model_year" name="model_year" class="yearpicker form-control validate" 
-                    min="1900" max="2021" minlength="4" maxlength="4" value="2021" required />
+                    <input type="number" id="model_year" name="model_year" class="yearpicker form-control validate" min="1900" max="2021" minlength="4" maxlength="4" value="2021" required />
                     <label for="model_year">Model year</label>
                 </div>
             </div>
@@ -41,8 +38,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="far fa-file-image prefix text-darken-4"></i>
-                    <textarea id="image_url" name="image_url" minlength="10"
-                        maxlength="500" class="materialize-textarea validate"></textarea>
+                    <textarea id="image_url" name="image_url" minlength="10" maxlength="500" class="materialize-textarea validate"></textarea>
                     <label for="image_url">Image URL (Leave empty for default)</label>
                 </div>
             </div>
@@ -51,35 +47,32 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-edit prefix text-darken-4"></i>
-                    <textarea id="bike_description" name="bike_description" data-length="550" minlength="20"
-                        maxlength="800" class="materialize-textarea validate" required></textarea>
+                    <textarea id="bike_description" name="bike_description" data-length="550" minlength="20" maxlength="800" class="materialize-textarea validate" required></textarea>
                     <label for="bike_description">Type your review here</label>
                 </div>
             </div>
             <!--Recommendation-->
             <div class="row">
-				<div class="input-field col s12">
+                <div class="input-field col s12">
                     <i class="fas fa-theater-masks prefix text-darken-4"></i>
-					<select id="recommend" name="recommend" class="validate" required>
+                    <select id="recommend" name="recommend" class="validate" required>
                         <option value="" disabled selected>Would you recommend it to others?</option>
-                        <option value="Yes" >Yes</option>
-                        <option value="No" >No</option>
-                        <option value="Unsure" >Unsure</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Unsure">Unsure</option>
                     </select>
-					<label for="recommend">Recommendation</label>
-				</div>
+                    <label for="recommend">Recommendation</label>
+                </div>
             </div>
 
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large red darken-4 text-shadow">
-                        Add review <i class="fas fa-plus right"></i>
-                    </button>
+                    <button type="submit" class="btn-large red darken-4 text-shadow">Add review <i class="fas fa-plus right"></i></button>
                 </div>
             </div>
         </form>
     </div>
-    </div>
-    
+</div>
+
 {% endblock %}

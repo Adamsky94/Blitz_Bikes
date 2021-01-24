@@ -1,31 +1,28 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
-    <h3 class="text-darken-4 center-align">Edit review</h3>
-    <div class="container" >
+<h3 class="text-darken-4 center-align">Edit review</h3>
+<div class="container">
     <div class="row card-panel grey lighten-5">
         <form class="col s12" method="POST" action="{{ url_for('edit_review', review_id=review._id) }}">
             <!-- category selection -->
-			<div class="row">
-				<div class="input-field col s12">
+            <div class="row">
+                <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix text-darken-4"></i>
-					<select id="category_name" name="category_name" class="validate" required>
+                    <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
-                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
                     <label for="category_name">Select Category</label>
-                    
-				</div>
+                </div>
             </div>
-            
+
             <!-- bike name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-font prefix text-darken-4"></i>
-                    <input id="bike_name" name="bike_name" minlength="3" maxlength="25"
-                        value="{{ review.bike_name }}" type="text" class="validate" required>
+                    <input id="bike_name" name="bike_name" minlength="3" maxlength="25" value="{{ review.bike_name }}" type="text" class="validate" required />
                     <label for="bike_name">Bike Name</label>
                 </div>
             </div>
@@ -33,8 +30,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="far fa-calendar-alt prefix text-darken-4"></i>
-                    <input type="number" id="model_year" name="model_year" class="yearpicker form-control validate" 
-                    min="1900" max="2021" minlength="4" maxlength="4" value="{{- review.model_year -}}" required />
+                    <input type="number" id="model_year" name="model_year" class="yearpicker form-control validate" min="1900" max="2021" minlength="4" maxlength="4" value="{{- review.model_year -}}" required />
                     <label for="model_year">Model year</label>
                 </div>
             </div>
@@ -42,8 +38,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="far fa-file-image prefix text-darken-4"></i>
-                    <textarea id="image_url" name="image_url" minlength="10"
-                        maxlength="500" class="materialize-textarea validate">
+                    <textarea id="image_url" name="image_url" minlength="10" maxlength="500" class="materialize-textarea validate">
                     {{- review.image_url -}}
                     </textarea>
                     <label for="image_url">Image URL (Leave empty for default)</label>
@@ -54,8 +49,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-edit prefix text-darken-4"></i>
-                    <textarea id="bike_description" name="bike_description" data-length="550" minlength="20"
-                        maxlength="800" class="materialize-textarea validate" required>
+                    <textarea id="bike_description" name="bike_description" data-length="550" minlength="20" maxlength="800" class="materialize-textarea validate" required>
                     {{- review.bike_description -}}
                     </textarea>
                     <label for="bike_description">Type your review here</label>
@@ -64,32 +58,28 @@
 
             <!--Recommendation-->
             <div class="row">
-				<div class="input-field col s12">
+                <div class="input-field col s12">
                     <i class="fas fa-theater-masks prefix text-darken-4"></i>
-					<select id="recommend" name="recommend" class="validate" required>
+                    <select id="recommend" name="recommend" class="validate" required>
                         <option value="" disabled selected>Would you recommend it to others?</option>
-                        <option value="Yes" >Yes</option>
-                        <option value="No" >No</option>
-                        <option value="Unsure" >Unsure</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Unsure">Unsure</option>
                     </select>
-					<label for="recommend">Recommendation</label>
-				</div>
+                    <label for="recommend">Recommendation</label>
+                </div>
             </div>
-    
+
             <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
-                     <!-- cancel button -->
-                    <a href="{{ url_for('user_reviews') }}" class="btn-large grey darken-4 text-shadow">
-                        Cancel <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <button type="submit" class="btn-large red darken-4 text-shadow">
-                        Edit review <i class="fas fa-user-edit right"></i>
-                    </button>
+                    <!-- cancel button -->
+                    <a href="{{ url_for('user_reviews') }}" class="btn-large grey darken-4 text-shadow"> Cancel <i class="fas fa-times-circle right"></i> </a>
+                    <button type="submit" class="btn-large red darken-4 text-shadow">Edit review <i class="fas fa-user-edit right"></i></button>
                 </div>
             </div>
         </form>
     </div>
-    </div>
-    
+</div>
+
 {% endblock %}
