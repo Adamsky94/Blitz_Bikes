@@ -186,6 +186,11 @@ footer {
 /*Styling for placing the quote symbol on review card*/
 .bike-review{
     position: relative;
+    min-height: 17rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .bike-review::before{
@@ -280,3 +285,23 @@ input[type=search]:not(.browser-default):focus:not([readonly])+label,
 textarea.materialize-textarea:focus:not([readonly])+label {
     color: rgb(0, 0, 0);
 }
+
+/*Media queries*/
+@media only screen and (min-width:1400px){
+    .bike-review {
+        min-height: 13rem;
+    }
+}
+
+@media only screen and (min-width:1235px) {
+    .bike-review{
+        min-height: 14rem;
+    }
+}
+
+@media only screen and (max-width:992px) {
+    .bike-review{
+    min-height: 11rem;
+ }
+}
+

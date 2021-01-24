@@ -18,12 +18,12 @@
 <h3 class="text-black center-align">Our Community's Reviews</h3>
 
 <div class="row center p-b">
-    Here's what YOU had to say about your experiences with bikes and various cycling equipment
+    Here's what YOU had to say about bikes
 </div>
 
 <div class="row center-align">
     {% for review in reviews %}
-    <div class="col s12 m6 l6">
+    <div class="col s12 m12 l6">
         <div class="card small">
             <div class="card-image">
                 {% if session.user|lower == "admin"|lower %}
