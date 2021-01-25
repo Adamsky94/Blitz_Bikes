@@ -169,11 +169,6 @@ footer {
 .page_bg {
     background: url("/static/images/jpg/page_bg.jpg") linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)) no-repeat cover;
     background-blend-mode: screen;
-    /*code to prevent the element resizing for 10 minutes to fix image jumping on scroll on mobile devices*/
-    transition: height 600s ease;
-    -webkit-transition: height 600s ease;
-    -moz-transition: height 600s ease;
-    -o-transition: height 600s ease;
 }
 
 /* card settings */
