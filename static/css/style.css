@@ -167,12 +167,15 @@ footer {
 
 /* Background image setting across all pages */
 .page_bg {
-    background-image: -o-linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)), url("/static/images/jpg/page_bg.jpg");
-    background-image: linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)), url("/static/images/jpg/page_bg.jpg");
+    background: url("/static/images/jpg/page_bg.jpg") linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)) no-repeat cover fixed;
     background-blend-mode: screen;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;  
 }
 
 /* card settings */
@@ -236,20 +239,14 @@ footer {
 }
 
 .profile-bg {
-    background-image: -o-linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/user_bg.jpg");
-    background-image: linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/user_bg.jpg");
+    background-image: linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/user_bg.jpg") no-repeat cover;
     background-blend-mode: screen;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 /*categories card*/
 .category_bg {
-    background-image: -o-linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/category_bg.jpg");
-    background-image: linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/category_bg.jpg");
+    background-image: linear-gradient(45deg, rgba(240,240,240, 0.95) 0 50%, rgba(240,240,240, 0.95)), url("../images/jpg/category_bg.jpg") no-repeat cover;
     background-blend-mode: screen;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 /* Helpers */
