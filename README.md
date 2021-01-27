@@ -30,7 +30,7 @@ Python app running from Heroku and the HTML code is rendered using the Jinja tem
 
 - [Testing](#Testing)
 
-  - [Bug fixes](#Bug-fixes)
+  - [Bugs](#Bugs)
   - [Lighthouse](#Lighthouse)
 
 - [Deployment](#Deployment)
@@ -164,7 +164,26 @@ of the main page content.
 
 ### **Database**
 
-- Content incoming....
+<img src="./static/images/jpg/readme_img/relation.jpg" />
+
+The database is created in MongoDB. My cluster contains 3 collections: Users, Categories, and Reviews. 
+
+In the Users table each item has a unique ObjectId, username, and password both stored as string. The password is hashed with Werkzeug in order to protect sensitive user information on database breach.
+
+In the Categories table each item has a unique ObjectId and a category name stored as string.
+
+In the Reviews table each item has a unique ObjectId, the selected category name's and the username's ObjectId, bike name, image URL, bike description and recommend as string and model year as number. The category's and username's ObjectId is stored 
+because upon updating any of them the change will reflect on all entries containing whichever affected. This would not happen if it was just a regular string and would be no connection between the tables. 
+
+This Python for loop takes care of getting the username and the category name string injected in the HTML for the main reviews page for example:
+```
+reviews = list(mongo.db.reviews.find())
+    for review in reviews:
+        review["category_name"] = mongo.db.categories.find_one(
+            {"_id": review["category_name"]})["category_name"]
+        review["username"] = mongo.db.users.find_one(
+            {"_id": review["username"]})["username"]
+```
 
 -----------------
 
@@ -199,14 +218,28 @@ Used online [autoprefixer](https://autoprefixer.github.io/) for maximum browser 
 
 Used online [code formatter](https://webformatter.com/) to achieve optimal syntax 
 
+##### Bugs
 
-##### Bug Fixes
+- On logging in the page does not import CSS and JS | Fix: Modified filepaths in code.
+- Background image zooms-in when zooming in on website with ctrl + | Fix: Background image was tied to a div element rather than the body of the page. Removed from div, added image to body.
+- Manually being able to enter letters when not using the DatePicker overriding it. | Fix: Changed input type text->number, added same min-max value pair as in DatePicker Script.
+- Review content not updating when modifying category_name or username in database. | Fix: Created relation between the tables and storing these two values ObjectId rather than the String value. Updates reflected now in the reviews.
+- No message towards the user when a search result returns without finding anything. | Fix: Added flash message on returning no result.
 
-- Content incoming....
+###### Persistent Bugs
+
+- User entering incorrect or broken URL when creating a review. | Bug: No image shown in review card 
+- Fixed background images "jumping" on mobile devices | Bug: When the URL bar hides on scrolling the image delays re-scaling to viewport
 
 ##### Lighthouse
 
+Running the built-in Lighthouse testing environment in desktop mode in Google Chrome it recommended to add meta-description to the pages as [SEO optimisation](https://web.dev/meta-description/?utm_source=lighthouse&utm_medium=devtools).
+
 <img src="./static/images/jpg/readme_img/lighthouse_seo.jpg" />
+
+Here is the result after following above recommendation.
+
+<img src="./static/images/jpg/readme_img/lighthouse_fix.jpg" />
 
 ## Deployment
 
@@ -284,6 +317,8 @@ GitHub documentation on cloning repository includes other methods to using the c
 ***Ross Dallaire*** - [for return-to-top arrow](https://codepen.io/rdallaire/pen/apoyx)
 
 ***Mezo Istvan*** - [for solution to the touchscreen :hover state of return-to-top arrow](https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c)
+
+***François Chalifour*** - [for MediumZoom JS](https://github.com/francoischalifour/medium-zoom?fbclid=IwAR3ANtRQJ6LpiaWRs71SSOdilInCkIW8-DNXG3dtjrbWLz68VI0BOotn3gU)
 
 ***GerrardSlippedHahaha*** on ***Reddit*** - [idea for how to have a default review image](https://www.reddit.com/r/learnpython/comments/6xsg51/django_default_image_for_filefield/)
 
