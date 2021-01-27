@@ -4,7 +4,7 @@ Code Institute Diploma in Full-Stack Web Development Milestone 3 Project
 
 ##### <u>Project name:</u> Blitz Bikes | Bombardment of Biking Reviews
 
-<img src="../static/images/jpg/readme_img/project_logo.jpg" />
+<img src="./static/images/jpg/readme_img/project_logo.jpg" />
 
 ### View the live project: https://blitz-bikes.herokuapp.com/
 
@@ -58,31 +58,31 @@ Code Institute Diploma in Full-Stack Web Development Milestone 3 Project
 
 ###### Landing layout
 
-<img src="../static/images/wireframes/landing.png" />
+<img src="./static/images/wireframes/landing.png" />
 
 > 
 
 ###### Reviews layout
 
-<img src="../static/images/wireframes/reviews.png" />
+<img src="./static/images/wireframes/reviews.png" />
 
 > 
 
 ###### Login/Register/Logout  layout
 
-<img src="../static/images/wireframes/login_register.png" />
+<img src="./static/images/wireframes/login_register.png" />
 
 > 
 
 ###### Add/Edit Reviews layout
 
-<img src="../static/images/wireframes/add_edit_review.png" />
+<img src="./static/images/wireframes/add_edit_review.png" />
 
 > 
 
 ###### Edit Categories layout
 
-<img src="../static/images/wireframes/categories.png" />
+<img src="./static/images/wireframes/categories.png" />
 
 > 
 
