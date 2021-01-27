@@ -15,27 +15,27 @@ Code Institute Diploma in Full-Stack Web Development Milestone 3 Project
 
 ### <u>Contents</u>
 
-- [User Stories](#User Stories)
+- [User Stories](#User)
 
 - [Wireframing](#Wireframing)
 - [Landing](#Landing)
-  - [Page layout](#Page Layout)
-  - [Contact Form](#Contact form)
+  - [Page layout](#Page)
+  - [Contact Form](#Contact)
   - [Navigation](#Navigation)
   - [Footer](#Footer)
 
-- [Technologies Used](#Technologies Used)
+- [Technologies Used](#Technologies)
 
-- [Version Control](#Version Control)
+- [Version Control](#Version)
 
-- [Testing write-up](#Testing write-up)
+- [Testing write-up](#Testing)
 
-  - [Bug fixes](#Bug Fixes)
-  - [Lighthouse Speed Tool](#Lighthouse Speed Tool)
+  - [Bug fixes](#Bug)
+  - [Lighthouse Speed Tool](#Lighthouse)
 
 - [Deployment](#Deployment)
 
-- [Cloning this repository](#Cloning this repository)
+- [Cloning this repository](#Cloning)
 
 - [Credits](#Credits)
 
