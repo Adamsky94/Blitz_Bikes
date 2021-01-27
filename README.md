@@ -78,16 +78,16 @@ Python app running from Heroku and the HTML code is rendered using the Jinja tem
 
 <img src="./static/images/wireframes/landing.png" />
 
-> I imagined a full-size landing page wich would contain a video as a background, the name of the site and an Enter button. All visitors would see this first.
+> I imagined a full-size landing page that would contain a video as a background, the name of the site and an Enter button. All visitors would see this first.
 
-Edit: I have used both a background image and video blended as the background. I have disabled the video on small screen devices with a media query.
+Edit: I have used both a background image, and video blended as the background. I have disabled the video on small screen devices with a media query.
 
 ##### Reviews layout
 
 <img src="./static/images/wireframes/reviews.png" />
 
-> The reviews page would contain a navbar on top with a searchbox below it so users can search amongst all posted reviews. The main content would be the review cards in rows of 3
-containing the bike's make and model, model year, the category of the type of the bike, the username of the reviewer and the review itself. The bottom of the page would hav the footer.
+> The reviews page would contain a navbar on top with a search box below it so users can search amongst all posted reviews. The main content would be the review cards in rows of 3
+containing the bike's make and model, model year, the category of the type of the bike, the username of the reviewer and the review itself. The bottom of the page would have the footer.
 
 Edit: I have decided to leave just 2 cards in a row as it seems to be a better layout. Below medium screensizes the reviews would be go under after each other.
 
@@ -96,17 +96,17 @@ Edit: I have decided to leave just 2 cards in a row as it seems to be a better l
 <img src="./static/images/wireframes/login_register.png" />
 
 > The main element here is a simple form which requires a username and a password to be entered. The logout option in the navigation would return the user to the login page with the form. 
-The form check if an existing username is entered for registration it shows an error. It also shows an error if there is an invalid username & password combination on login.
+The form checks if an existing username is entered for registration it shows an error. It also shows an error if there is an invalid username & password combination on login.
 
 ##### Add/Edit Reviews layout
 
 <img src="./static/images/wireframes/add_edit_review.png" />
 
-> This would be the form where a registered user can enter the details of the bike they are about to review. They can chose the category, add the make and model, select manufacturing year, 
-add a URL for an image (a default image would load if the field is left empty), type the 550 character review and on a final dropdown they can select wether they'd recommend the bike or not.
+> This would be the form where a registered user can enter the details of the bike they are about to review. They can choose the category, add the make and model, select manufacturing year, 
+add a URL for an image (a default image would load if the field is left empty), type the 550 character review and on a final dropdown they can select whether they'd recommend the bike or not.
 
-Edit: I couldn't figure how to upload and store an image in a MongoDB database so I implemeted this "enter image URL" design. The only downside to it if the user is entering an invalid or broken 
-URL no image would be displaying. No failsafe implemented for this.
+Edit: I couldn't figure how to upload and store an image in a MongoDB database so I implemented this "enter image URL" design. The only downside to it if the user is entering an invalid or broken 
+URL no image would be displaying. No failsafe was implemented for this.
 
 ##### Edit Categories layout
 
@@ -119,13 +119,13 @@ create new categories.
 
 <img src="./static/images/wireframes/navigation.png" />
 
-> There is a uniform navigation bar for all types of users on all pages. It contains the page logo on the left and links on the right. The links would show up differently for the different type of users. For example a visitor will not see the "Add review" page before registrating and logging in. 
-A registered user will not see the "Register" page logged in as it is irrelevant at this point and they will not be able to modify any other reviews than their own, nor review categories. The administrator would have acces to all of these. 
+> There is a uniform navigation bar for all types of users on all pages. It contains the page logo on the left and links on the right. The links would show up differently for the different types of users. For example a visitor will not see the "Add review" page before registering and logging in. 
+A registered user will not see the "Register" page logged in as it is irrelevant at this point and they will not be able to modify any other reviews than their own, nor review categories. The administrator would have access to all of these. 
 On small screen devices the navigation would collapse to a hamburger icon and would load in from the left of the screen upon clicking on it. Again, only the appropriate links for certain users.
 
 ##### Footer
 
-> A uniform page footer would contain the brand and some more information on the left side and basic navigation links for all users for loggin in, registering and the reviews page. If a user clicks on these links while logged in it does not end their session. The very bottom of the footer contains basic copyright info and further links.
+> A uniform page footer would contain the brand and some more information on the left side and basic navigation links for all users for logging in, registering and the reviews page. If a user clicks on these links while logged in it does not end their session. The very bottom of the footer contains basic copyright info and further links.
 
 **Color scheme and typography**
 
@@ -222,21 +222,29 @@ Used online [code formatter](https://webformatter.com/) to achieve optimal synta
 
 ##### Bugs
 
-- On logging in the page does not import CSS and JS | Fix: Modified filepaths in code.
-- Validating code: Enter site button can't be descendant on anchor element | Fix: Removing button element, having a 'button' class on the 'a' element.
-- Background image zooms-in when zooming in on website with ctrl + | Fix: Background image was tied to a div element rather than the body of the page. Removed from div, added image to body.
-- Manually being able to enter letters when not using the DatePicker overriding it. | Fix: Changed input type text->number, added same min-max value pair as in DatePicker Script.
-- Review content not updating when modifying category_name or username in database. | Fix: Created relation between the tables and storing these two values ObjectId rather than the String value. Updates reflected now in the reviews.
-- No message towards the user when a search result returns without finding anything. | Fix: Added flash message on returning no result.
+- On logging in the page does not import CSS and JS 
+Fix: Modified filepaths in code.
+- Validating code: Enter site button can't be descendant on anchor element 
+Fix: Removing button element, having a 'button' class on the 'a' element.
+- Background image zooms-in when zooming in on website with ctrl + 
+Fix: Background image was tied to a div element rather than the body of the page. Removed from div, added image to body.
+- Manually being able to enter letters when not using the DatePicker overriding it.
+ Fix: Changed input type text->number, added same min-max value pair as in DatePicker Script.
+- Review content not updating when modifying category_name or username in database.
+ Fix: Created relation between the tables and storing these two values ObjectId rather than the String value. Updates reflected now in the reviews.
+- No message towards the user when a search result returns without finding anything.
+ Fix: Added flash message on returning no result.
 
 ###### Persistent Bugs
 
-- User entering incorrect or broken URL when creating a review. | Bug: No image shown in review card 
-- Fixed background images "jumping" on mobile devices | Bug: When the URL bar hides on scrolling the image delays re-scaling to viewport
+- User entering incorrect or broken URL when creating a review.
+Bug: No image shown in review card 
+- Fixed background images "jumping" on mobile devices
+ Bug: When the URL bar hides on scrolling the image delays re-scaling to viewport
 
 ##### Lighthouse
 
-Running the built-in Lighthouse testing environment in desktop mode in Google Chrome it recommended to add meta-description to the pages as [SEO optimisation](https://web.dev/meta-description/?utm_source=lighthouse&utm_medium=devtools).
+Running the built-in Lighthouse testing environment in desktop mode in Google Chrome it recommended to add meta-description to the pages as [SEO optimization](https://web.dev/meta-description/?utm_source=lighthouse&utm_medium=devtools).
 
 <img src="./static/images/jpg/readme_img/lighthouse_seo.jpg" />
 
