@@ -16,8 +16,9 @@
 body {
     background-attachment: fixed;
     background-blend-mode: screen;
-    background-image: -o-linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)), url("/static/images/jpg/page_bg.jpg");
-    background-image: linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)), url("/static/images/jpg/page_bg.jpg");
+    background-image: url("/static/images/jpg/page_bg.jpg"), -webkit-gradient(linear, left top, left bottom, from(rgb(220,220,220)), to(rgb(220,220,220)));
+    background-image: url("/static/images/jpg/page_bg.jpg"), -o-linear-gradient(rgb(220,220,220), rgb(220,220,220));
+    background-image: url("/static/images/jpg/page_bg.jpg"), linear-gradient(rgb(220,220,220), rgb(220,220,220));
     background-repeat: no-repeat;
     background-size: cover;
     display: -webkit-box;
@@ -165,12 +166,6 @@ footer {
     }
 }
 
-/* Background image setting across all pages */
-.page_bg {
-    background: url("/static/images/jpg/page_bg.jpg") linear-gradient(45deg, rgb(220,220,220) 0 50%, rgb(220,220,220)) no-repeat cover;
-    background-blend-mode: screen;
-}
-
 /* card settings */
 /*reviews card*/
 .card .card-title {
@@ -232,7 +227,9 @@ footer {
 }
 
 .profile-bg {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.95) 0 50%, rgba(255, 251, 251, 0.95)), url("../images/jpg/user_bg.jpg");
+    background-image: url("../images/jpg/user_bg.jpg"), -webkit-gradient(linear, left top, left bottom, from(rgb(220,220,220)), to(rgb(220,220,220)));
+    background-image: url("../images/jpg/user_bg.jpg"), -o-linear-gradient(rgb(220,220,220), rgb(220,220,220));
+    background-image: url("../images/jpg/user_bg.jpg"), linear-gradient(rgb(220,220,220), rgb(220,220,220));
     background-blend-mode: screen;
     background-repeat: no-repeat;
     background-size: cover;
@@ -240,7 +237,9 @@ footer {
 
 /*categories card*/
 .category_bg {
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.95) 0 50%, rgba(255, 251, 251, 0.95)), url("../images/jpg/category_bg.jpg");
+    background-image: url("../images/jpg/category_bg.jpg"), -webkit-gradient(linear, left top, left bottom, from(rgb(220,220,220)), to(rgb(220,220,220)));
+    background-image: url("../images/jpg/category_bg.jpg"), -o-linear-gradient(rgb(220,220,220), rgb(220,220,220));
+    background-image: url("../images/jpg/category_bg.jpg"), linear-gradient(rgb(220,220,220), rgb(220,220,220));;
     background-blend-mode: screen;
     background-repeat: no-repeat;
     background-size: cover;

@@ -32,10 +32,10 @@
                 {% endif %}
                 <!--Logic for checking image URL in review database-->
                 {% if review.image_url %}
-                <img data-zoomable src="{{ review.image_url }}" />
+                <img data-zoomable src="{{ review.image_url }}" alt="User review image" />
                 <!--If there is no URL then it uses a default image from the static folder-->
                 {% else %}
-                <img src="static/images/jpg/default_bike.jpg" />
+                <img src="static/images/jpg/default_bike.jpg" alt="Default bike review image" />
                 {% endif %}
             </div>
 
