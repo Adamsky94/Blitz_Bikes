@@ -21,12 +21,10 @@ Python app running from Heroku and the HTML code is rendered using the Jinja tem
 - [User Stories](#User-Stories)
 
 - [Wireframing](#Wireframing)
-- [Landing](#Landing)
-  - [Page layout](#Page-layout)
-  - [Navigation](#Navigation)
-  - [Footer](#Footer)
 
 - [Technologies Used](#Technologies-used)
+
+- [Database](#Database)
 
 - [Version Control](#Version-control)
 
@@ -37,7 +35,7 @@ Python app running from Heroku and the HTML code is rendered using the Jinja tem
 
 - [Deployment](#Deployment)
 
-- [Cloning repository](#Cloning-repository)
+- [Cloning repository](#Cloning-this-repository)
 
 - [Credits](#Credits)
 
@@ -74,9 +72,9 @@ Python app running from Heroku and the HTML code is rendered using the Jinja tem
 
 -----------------
 
-#### **Wireframing**
+### **Wireframing**
 
-###### Landing layout
+##### Landing layout
 
 <img src="./static/images/wireframes/landing.png" />
 
@@ -84,7 +82,7 @@ Python app running from Heroku and the HTML code is rendered using the Jinja tem
 
 Edit: I have used both a background image and video blended as the background. I have disabled the video on small screen devices with a media query.
 
-###### Reviews layout
+##### Reviews layout
 
 <img src="./static/images/wireframes/reviews.png" />
 
@@ -93,14 +91,14 @@ containing the bike's make and model, model year, the category of the type of th
 
 Edit: I have decided to leave just 2 cards in a row as it seems to be a better layout. Below medium screensizes the reviews would be go under after each other.
 
-###### Login/Register/Logout  layout
+##### Login/Register/Logout  layout
 
 <img src="./static/images/wireframes/login_register.png" />
 
 > The main element here is a simple form which requires a username and a password to be entered. The logout option in the navigation would return the user to the login page with the form. 
 The form check if an existing username is entered for registration it shows an error. It also shows an error if there is an invalid username & password combination on login.
 
-###### Add/Edit Reviews layout
+##### Add/Edit Reviews layout
 
 <img src="./static/images/wireframes/add_edit_review.png" />
 
@@ -110,14 +108,14 @@ add a URL for an image (a default image would load if the field is left empty), 
 Edit: I couldn't figure how to upload and store an image in a MongoDB database so I implemeted this "enter image URL" design. The only downside to it if the user is entering an invalid or broken 
 URL no image would be displaying. No failsafe implemented for this.
 
-###### Edit Categories layout
+##### Edit Categories layout
 
 <img src="./static/images/wireframes/categories.png" />
 
 > This page would only show up when the Administrator is logged in. There would be all current categories listed here with the option to edit or delete each of them. There would be also the option to 
 create new categories.
 
-###### Navigation
+##### Navigation
 
 <img src="./static/images/wireframes/navigation.png" />
 
@@ -125,7 +123,7 @@ create new categories.
 A registered user will not see the "Register" page logged in as it is irrelevant at this point and they will not be able to modify any other reviews than their own, nor review categories. The administrator would have acces to all of these. 
 On small screen devices the navigation would collapse to a hamburger icon and would load in from the left of the screen upon clicking on it. Again, only the appropriate links for certain users.
 
-###### Footer
+##### Footer
 
 > A uniform page footer would contain the brand and some more information on the left side and basic navigation links for all users for loggin in, registering and the reviews page. If a user clicks on these links while logged in it does not end their session. The very bottom of the footer contains basic copyright info and further links.
 
@@ -161,6 +159,13 @@ of the main page content.
 - [Animate.css](https://animate.style/) - for animating headings
 - [Typora](https://typora.io/) - The README.md file was partially edited in Typora
 
+
+-----------------
+
+### **Database**
+
+- Content incoming....
+
 -----------------
 
 ### **Version Control**
@@ -169,7 +174,7 @@ I used Git for version control and uploading the project to GitHub.
 
 My GitHub repository for this project: https://github.com/Adamsky94/Blitz_Bikes
 
-### Testing write-up
+### Testing
 
 HTML code validated on - https://validator.w3.org/
 
@@ -197,11 +202,11 @@ Used online [code formatter](https://webformatter.com/) to achieve optimal synta
 
 ##### Bug Fixes
 
-- 
+- Content incoming....
 
-##### Lighthouse Speed Tool
+##### Lighthouse
 
-<img src="./static/images/jpg/readme_img/lighthouse_seo.png" />
+<img src="./static/images/jpg/readme_img/lighthouse_seo.jpg" />
 
 ## Deployment
 
@@ -238,13 +243,13 @@ SECRET_KEY = [Your Secret key]
 
 #### The live project page: https://blitz-bikes.herokuapp.com/
 
-<img src="./static/images/jpg/readme_img/multimockup.png" />
+<img src="./static/images/jpg/readme_img/multimockup.jpg" />
 
 ------
 
 ### Cloning this repository
 
-If you'd like to see and work on my code locally feel free to clone the repository. When you clone a repository, you copy the repository from GitHub to your local machine. 
+When you clone a repository, you copy the repository from GitHub to your local machine. 
 
 1. On GitHub, navigate to the main page of the repository.
 
@@ -274,33 +279,33 @@ GitHub documentation on cloning repository includes other methods to using the c
 
 ***Tim Nelson*** - Lecturer/Developer at Code Institute - For the creation of the code used in the Mini-project. The "Blitz Bikes" Project is based on that code.
 
-***Matt Rudge*** - Lecturer/Developer at Code Institute -  https://github.com/Code-Institute-Org/gitpod-full-template - for template used with GitPod IDE for developing this project, and lecture on Email JS
+***Matt Rudge*** - Lecturer/Developer at Code Institute - [for template used with GitPod IDE](https://github.com/Code-Institute-Org/gitpod-full-template)
 
-***Ross Dallaire*** - https://codepen.io/rdallaire/pen/apoyx - for return-to-top arrow
+***Ross Dallaire*** - [for return-to-top arrow](https://codepen.io/rdallaire/pen/apoyx)
 
-***Mezo Istvan*** - https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c - for solution to the touchscreen :hover state of return-to-top arrow
+***Mezo Istvan*** - [for solution to the touchscreen :hover state of return-to-top arrow](https://medium.com/@mezoistvan/finally-a-css-only-solution-to-hover-on-touchscreens-c498af39c31c)
 
-***GerrardSlippedHahaha*** on ***Reddit*** - https://www.reddit.com/r/learnpython/comments/6xsg51/django_default_image_for_filefield/ - idea for how to have a default review image
+***GerrardSlippedHahaha*** on ***Reddit*** - [idea for how to have a default review image](https://www.reddit.com/r/learnpython/comments/6xsg51/django_default_image_for_filefield/)
 
-***Erik Mclean*** on ***Pexels*** - https://www.pexels.com/photo/stop-sign-on-the-street-4061973/ - for categories background image
+***Jan Kroon*** on ***Pexels*** - [for page background image](https://www.pexels.com/photo/grayscale-photo-of-road-1169116/)
 
-***Jan Kroon*** on ***Pexels*** - https://www.pexels.com/photo/grayscale-photo-of-road-1169116/ - for page background image
+***Erik Mclean*** on ***Pexels*** - [for categories background image](https://www.pexels.com/photo/stop-sign-on-the-street-4061973/)
 
-***Saravanan*** on ***codehim.com*** - https://www.codehim.com/date-time/jquery-datepicker-year-only/ - for CSS and JavaScript of Year only Date Picker
+***Saravanan*** on ***codehim.com*** - [for CSS and JavaScript of Year only Date Picker](https://www.codehim.com/date-time/jquery-datepicker-year-only/)
 
-***TK*** on ***redstapler.co*** - https://redstapler.co/responsive-css-video-background/ - on how to do responsive CSS video background
+***TK*** on ***redstapler.co*** - [on how to do responsive CSS video background](https://redstapler.co/responsive-css-video-background/)
 
-***coverr.co*** - https://coverr.co/videos/spinning-bike-wheel-kwdjraJSwY - for the background video
+***coverr.co*** - [for the background video](https://coverr.co/videos/spinning-bike-wheel-kwdjraJSwY)
 
-***W3Schools*** - https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp - for code on creating custom scrollbar
+***W3Schools*** - [for code on creating custom scrollbar](https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp)
 
-***web.dev*** - https://web.dev/meta-description/?utm_source=lighthouse&utm_medium=devtools - on reccomendating how to achieve better SEO
+***web.dev*** - [on reccomendating how to achieve better SEO](https://web.dev/meta-description/?utm_source=lighthouse&utm_medium=devtools)
 
-***Font Awesome*** -  https://fontawesome.com/ - CDN for icons used in the project
+***Font Awesome*** - [CDN for icons used in the project](https://fontawesome.com/)
 
-***Google Fonts*** - https://fonts.google.com/ - CDN for fonts used in the project
+***Google Fonts*** - [CDN for fonts used in the project](https://fonts.google.com/)
 
-***Animate.css*** -  https://animate.style/ - for animation on the landing page
+***Animate.css*** - [for animation of headings](https://animate.style/)
 
 ***JQuery*** - https://jquery.com/
 
