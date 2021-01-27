@@ -88,17 +88,15 @@ Code Institute Diploma in Full-Stack Web Development Milestone 3 Project
 
 ###### Navigation
 
+<img src="./static/images/wireframes/navigation.png" />
+
 > 
 
 ###### Footer
 
 > 
 
-
-
 **Color scheme and typography**
-
-
 
 -----------------
 
@@ -107,22 +105,18 @@ Code Institute Diploma in Full-Stack Web Development Milestone 3 Project
 - HTML5
 - CSS3
 - JavaScript
+- Python3
+- Flask Microframework
 - Git Version Control 
 - GitHub - to host the repository and the live site
 - GitPod IDE - remote developer environment
 - Balsamiq Wireframes - used in the design process for wireframing
+- MongoDB
 - [JQuery](https://jquery.com/)
 - [Materialize CSS](https://materializecss.com/)
 - [FontAwesome](https://fontawesome.com/) - for the icons used
 - [Animate.css](https://animate.style/) - for animating element on the landing page 
 - [Typora](https://typora.io/) - The README.md file was edited in Typora
-
-### Adding Email JS SDK
-
-
-
-### Adding the Google Maps API
-
 
 
 -----------------
@@ -158,7 +152,7 @@ Used online [code formatter](https://webformatter.com/) to achieve optimal synta
 
 ##### Lighthouse Speed Tool
 
-### Deployment
+## Deployment
 
 ### Deploying on Heroku
 
