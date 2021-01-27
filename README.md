@@ -195,7 +195,7 @@ My GitHub repository for this project: https://github.com/Adamsky94/Blitz_Bikes
 
 ### Testing
 
-HTML code validated on - https://validator.w3.org/
+HTML code validated on - https://validator.w3.org/ -The Validator only shows errors because of the Jinja templating being used.
 
 CSS code validated on - https://jigsaw.w3.org/css-validator/ 
 
@@ -204,6 +204,8 @@ CSS code validated on - https://jigsaw.w3.org/css-validator/
         src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
         alt="Valid CSS!" />
 </a>
+
+Python3 code is PEP8 compilant - Built in linter plugin in the IDE shows no errors
 
 Responsivity for mobile devices tested on:
 
@@ -221,6 +223,7 @@ Used online [code formatter](https://webformatter.com/) to achieve optimal synta
 ##### Bugs
 
 - On logging in the page does not import CSS and JS | Fix: Modified filepaths in code.
+- Validating code: Enter site button can't be descendant on anchor element | Fix: Removing button element, having a 'button' class on the 'a' element.
 - Background image zooms-in when zooming in on website with ctrl + | Fix: Background image was tied to a div element rather than the body of the page. Removed from div, added image to body.
 - Manually being able to enter letters when not using the DatePicker overriding it. | Fix: Changed input type text->number, added same min-max value pair as in DatePicker Script.
 - Review content not updating when modifying category_name or username in database. | Fix: Created relation between the tables and storing these two values ObjectId rather than the String value. Updates reflected now in the reviews.
