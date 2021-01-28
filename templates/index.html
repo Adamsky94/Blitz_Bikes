@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--meta description for search engine optimization-->
         <meta name="description" content="This is a bike review site project for the Data-Centric Development
         module at Code Institute. Created by Adam Kiss in January 2021.">
 
@@ -18,6 +19,7 @@
         <title>Blitz Bikes | Bombardment of Biking Reviews</title>
     </head>
     <body>
+        <!--Container and main heading-->
         <div class="container__index center">
             <h1 class="animate__animated animate__slideInDown">
                 Blitz Bikes
@@ -29,7 +31,6 @@
                     <source src="static/vid/bg_vid.mp4" type="video/mp4" />
                 </video>
             </div>
-
             <!--Enter Site button-->
             <a href="{{ url_for('get_reviews') }}"
                 class="btn-large red darken-4 z-depth-5 animate__animated animate__zoomIn">

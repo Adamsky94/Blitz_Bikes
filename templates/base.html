@@ -3,24 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--meta description for search engine optimization-->
         <meta name="description" content="This is a bike review site project for the Data-Centric Development
         module at Code Institute. Created by Adam Kiss in January 2021.">
 
-        <!-- Materialize Compiled and minified CSS -->
+        <!--Materialize Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
         <!--FontAwesome CSS-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
         <!--Animate.css CDN-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        <!-- Year Picker CSS -->
+        <!--YearPicker CSS from https://www.codehim.com/date-time/jquery-datepicker-year-only/ -->
         <link rel="stylesheet" href="/static/css/yearpicker.css" type="text/css" />
         <!--My custom CSS-->
         <link rel="stylesheet" href="/static/css/style.css" type="text/css" />
-        <!--yearpicker css from https://www.codehim.com/date-time/jquery-datepicker-year-only/ -->
+        
         <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon" />
 
         <title>Blitz Bikes | Bombardment of Biking Reviews</title>
     </head>
+<!--Base code from Data-Centric Development Mini Project from Code Institute/Tim Nelson -->
     <body>
         <header>
             <!--Navigation from https://materializecss.com/navbar.html-->
@@ -29,18 +31,26 @@
                     <a href="{{ url_for('get_reviews') }}" class="brand-logo">Blitz Bikes</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
                     <ul class="right hide-on-med-and-down">
+                        <!--The logic for showing diferent navigation links for different users-->
+                        <!--Show this link to any visitor of the site-->
                         <li><a href="{{ url_for('get_reviews') }}">Reviews</a></li>
+                        <!--If there is a user logged in already in the session show `Profile` link in navigation-->
                         {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <!--If a user is logged in not the Administrator show `Your reviews` link-->
                         {% if session.user|lower != "admin"|lower %}
                         <li><a href="{{ url_for('user_reviews') }}">Your reviews</a></li>
-                        {% endif %} {% if session.user|lower == "admin"|lower %}
+                        {% endif %} 
+                        <!--Only if Admin is logged in show these links-->
+                        {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('get_categories') }}">Manage Categories</a></li>
                         <li><a href="{{ url_for('user_reviews') }}">Claimed reviews</a></li>
                         {% endif %}
+                        <!--If a user is logged in not the Administrator show `Add review and Log out` links-->
                         <li><a href="{{ url_for('add_review') }}">Add review</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                         {% else %}
+                        <!--Show these links to any visitor of the site-->
                         <li><a href="{{ url_for('login') }}">Log In</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                         {% endif %}
@@ -82,7 +92,7 @@
 
         <!-- Return to top button code from @rdallaire on CodePen https://codepen.io/rdallaire/pen/apoyx -->
         <a href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
-
+        <!--Footer code based on Materialize CSS https://materializecss.com/footer.html -->
         <footer class="page-footer red darken-4">
             <div class="container">
                 <div class="row">

@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-
+<!--Base code from Data-Centric Development Mini Project from Code Institute/Tim Nelson -->
 <h3 class="text-darken-4 center-align">Edit category</h3>
 <div class="container">
     <div class="row card-panel grey lighten-5">
@@ -12,11 +12,11 @@
                     <label for="category_name">Category Name</label>
                 </div>
             </div>
-            <!-- submit button -->
             <div class="row">
                 <div class="col s12 center-align">
                     <!-- cancel button -->
                     <a href="{{ url_for('get_categories') }}" class="btn-large grey darken-4 text-shadow"> Cancel <i class="fas fa-times-circle right"></i> </a>
+                    <!-- submit button -->
                     <button type="submit" class="btn-large red darken-4 text-shadow">Edit category <i class="fas fa-edit right"></i></button>
                 </div>
             </div>

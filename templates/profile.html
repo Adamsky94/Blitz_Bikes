@@ -1,8 +1,9 @@
 {% extends "base.html" %} {% block content %}
-
+<!--Base code from Data-Centric Development Mini Project from Code Institute/Tim Nelson -->
 <div class="row p-t p-b">
     <div class="col s12 m8 offset-m2">
         <div class="profile profile-bg z-depth-2 valign-wrapper">
+            <!--Logic for different welcome messages-->
             {% if session.user|lower == "admin"|lower %}
             <h3 class="hello text-darken 4 animate__animated animate__zoomIn">Welcome back /{{ username }}/</h3>
             {% else %}

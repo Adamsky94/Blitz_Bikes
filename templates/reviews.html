@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block content %}
-
+<!--Base code from Data-Centric Development Mini Project from Code Institute/Tim Nelson -->
+<!--Search-->
 <div id="searchbox" class="row center p-b card-panel grey lighten-5">
     <form action="{{ url_for('search') }}" method="post" class="col s12">
         <div class="row valign-wrapper center-align">
@@ -22,29 +23,33 @@
 </div>
 
 <div class="row center-align">
+    <!--Logic for iterating thorugh the database for reviews and rendering them to the page as a card element each-->
     {% for review in reviews %}
     <div class="col s12 m12 l6">
         <div class="card small">
+            <!--Review card image-->
             <div class="card-image">
+                <!--Only if Administrator is logged in show the `Delete` and `Edit` buttons-->
                 {% if session.user|lower == "admin"|lower %}
                 <a href="{{ url_for('delete_review', review_id=review._id) }}" class="btn-small red darken-4">Delete</a>
                 <a href="{{ url_for('edit_review', review_id=review._id) }}" class="btn-small light-blue darken-2">Edit</a>
                 {% endif %}
-                <!--Logic for checking image URL in review database-->
+                <!--Logic for checking image URL entry in database-->
                 {% if review.image_url %}
                 <img data-zoomable src="{{ review.image_url }}" alt="User review image" />
-                <!--If there is no URL then it uses a default image from the static folder-->
+                <!--If there is no URL then it uses a default image from the static folder which is not zoomable-->
                 {% else %}
                 <img src="static/images/jpg/default_bike.jpg" alt="Default bike review image" />
                 {% endif %}
             </div>
-
+            <!--Review card details-->
             <span class="card-title">{{ review.bike_name }}</span>
             <div class="card-content">
                 {{ review.model_year }} || {{ review.category_name }}<br />
                 <span class="card-reviewer">Review by: <i>{{ review.username }}</i></span>
             </div>
         </div>
+        <!--Review text-->
         <div class="bike-review">
             {{ review.bike_description }}<br />
             <div class="recommend">User recommendation: <span>{{ review.recommend }}</span></div>

@@ -49,17 +49,19 @@ Python app running from Heroku and the HTML code is rendered using the Jinja tem
 
 - To be able to enter the site past the landing page
 - To be able to see all reviews posted containing all relevant information
-- To be able to see non-broken layout on all resolutions
-- To be able to view all pictures and an easy to use navigation with buttons and links functioning properly
+- To be able to search in the reviews
+- To be able to see non-broken layout on all resolutions and screensizes
+- To be able to view all images, not seeing borken images
+- To be able to easily navigate on the site and clear feedback upon user interaction
 - To be able to register to the site
 
 ###### As a registered user I expect in addition to the above:
 
 - To be able to log in and out of my personal profile
 - To be able to leave a review
-- To be able to see the collection of reviews I left
 - To be able to edit the reviews I left
 - To be able to delete the reviews I left
+- To be able to see the collection of reviews I left
 
 ###### As the administrator I expect in addition to the above:
 
@@ -119,8 +121,13 @@ create new categories.
 
 <img src="./static/images/wireframes/navigation.png" />
 
-> There is a uniform navigation bar for all types of users on all pages. It contains the page logo on the left and links on the right. The links would show up differently for the different types of users. For example a visitor will not see the "Add review" page before registering and logging in. 
-A registered user will not see the "Register" page logged in as it is irrelevant at this point and they will not be able to modify any other reviews than their own, nor review categories. The administrator would have access to all of these. 
+> There is a uniform navigation bar for all types of users on all pages. It contains the page logo on the left and links on the right. The links would show up differently for the different types of users. For example:
+- A visitor will not see the "Add review" page before registering and logging in. 
+
+- A registered user will not see the "Register" page logged in as it is irrelevant at this point and they will not be able to modify any other reviews than their own, nor review categories. 
+
+- The administrator would have access to all of these. 
+
 On small screen devices the navigation would collapse to a hamburger icon and would load in from the left of the screen upon clicking on it. Again, only the appropriate links for certain users.
 
 ##### Footer
@@ -129,9 +136,13 @@ On small screen devices the navigation would collapse to a hamburger icon and wo
 
 **Color scheme and typography**
 
-> I have imported the 'Dosis' and 'Germania One' fonts from Google Fonts. 'Germania One' is used for the logo of the page. All other text through the pages are set for 'Dosis' as default. 'Georgia', 'Times New Roman', 'Times', 'serif' are used as fallback fonts. I used the Materialize CSS for the layout and colors. Chosen black for text and 
-light and dark shades of red for the navbar, footer and the buttons. For the background image, user image, category image and background video I used the linear-gradient CSS property to create a uniform light-grey overlay and added opacity to the video. I intented to achieve a nice contrast between the red top and bottom and the lighter colors 
-of the main page content.
+> I have imported the 'Dosis' and 'Germania One' fonts from Google Fonts. 'Germania One' is used for the logo of the page. All other text through the pages are set for 'Dosis' as default. 
+
+'Georgia', 'Times New Roman', 'Times', 'serif' are used as fallback fonts. 
+
+I used the Materialize CSS for the layout and colors. Chosen black for text, light and dark shades of red for the navbar, the footer and the buttons. 
+
+For the background image, user image, category image and background video I used the linear-gradient CSS property to create a uniform light-grey overlay and added opacity to the video. I intented to achieve a nice contrast between the red top and bottom and the lighter colors of the main page content.
 
 -----------------
 
@@ -147,7 +158,7 @@ of the main page content.
 - pymongo
 - Werkzeug
 - Git Version Control 
-- GitHub - to host the repository and the live site
+- GitHub - to host the repository
 - GitPod IDE - remote developer environment
 - Balsamiq Wireframes - used in the design process for wireframing
 - [Heroku](https://www.heroku.com/)
@@ -224,14 +235,19 @@ Used online [code formatter](https://webformatter.com/) to achieve optimal synta
 
 - On logging in the page does not import CSS and JS 
 Fix: Modified filepaths in code.
+
 - Validating code: Enter site button can't be descendant on anchor element 
 Fix: Removing button element, having a 'button' class on the 'a' element.
+
 - Background image zooms-in when zooming in on website with ctrl + 
 Fix: Background image was tied to a div element rather than the body of the page. Removed from div, added image to body.
+
 - Manually being able to enter letters when not using the DatePicker overriding it.
  Fix: Changed input type text->number, added same min-max value pair as in DatePicker Script.
+
 - Review content not updating when modifying category_name or username in database.
  Fix: Created relation between the tables and storing these two values ObjectId rather than the String value. Updates reflected now in the reviews.
+
 - No message towards the user when a search result returns without finding anything.
  Fix: Added flash message on returning no result.
 
@@ -239,6 +255,7 @@ Fix: Background image was tied to a div element rather than the body of the page
 
 - User entering incorrect or broken URL when creating a review.
 Bug: No image shown in review card 
+
 - Fixed background images "jumping" on mobile devices
  Bug: When the URL bar hides on scrolling the image delays re-scaling to viewport
 
@@ -324,6 +341,8 @@ GitHub documentation on cloning repository includes other methods to using the c
 ***Tim Nelson*** - Lecturer/Developer at Code Institute - For the creation of the code used in the Mini-project. The "Blitz Bikes" Project is based on that code.
 
 ***Matt Rudge*** - Lecturer/Developer at Code Institute - [for template used with GitPod IDE](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+***Bence Kiss*** my brother - for general talk and recommendation on using MediumZoom for the review images
 
 ***Ross Dallaire*** - [for return-to-top arrow](https://codepen.io/rdallaire/pen/apoyx)
 
