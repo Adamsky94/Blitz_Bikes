@@ -19,14 +19,16 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+# Routing for the index page
 @app.route("/get_index")
 def get_index():
     return render_template("index.html")
 
-# Check This code
+# Refactoring code after 2nd Mentor session with Antonio Rodrigez
 
 
 @app.route("/get_reviews")
+# Routing for the the main reviews page
 def get_reviews():
     reviews = list(mongo.db.reviews.find())
     for review in reviews:
@@ -40,7 +42,9 @@ def get_reviews():
 
 
 @app.route("/user_reviews")
+# Routing for the user reviews page
 def user_reviews():
+    # finding the reviews in the db and listing them
     reviews = list(mongo.db.reviews.find())
     for review in reviews:
         review["category_name"] = mongo.db.categories.find_one(
@@ -51,6 +55,7 @@ def user_reviews():
 
 
 @app.route("/add_review", methods=["GET", "POST"])
+# Routing for the Add reviews page
 def add_review():
     if request.method == "POST":
         category_id = mongo.db.categories.find_one(
@@ -75,6 +80,7 @@ def add_review():
 
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
+    # Routing for the edit review page
     if request.method == "POST":
         category_id = mongo.db.categories.find_one(
             {"category_name": request.form.get("category_name")})["_id"]
@@ -88,6 +94,7 @@ def edit_review(review_id):
             "recommend": request.form.get("recommend"),
             "username": ObjectId(user_id)
         }
+        # Update the review and leave message on the screen
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, submit)
         flash("You have updated the review")
         return redirect(url_for("user_reviews"))
@@ -99,13 +106,16 @@ def edit_review(review_id):
 
 
 @app.route("/delete_review/<review_id>")
+# Routing for the delete review page
 def delete_review(review_id):
+    # Remove the review where the id's match and leave message on screen
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Review Successfully Deleted")
     return redirect(url_for("user_reviews"))
 
 
 @app.route("/search", methods=["GET", "POST"])
+# Routing of the search functionality
 def search():
     query = request.form.get("query")
     reviews = list(mongo.db.reviews.find({"$text": {"$search": query}}))
@@ -115,11 +125,14 @@ def search():
         review["username"] = mongo.db.users.find_one(
             {"_id": review["username"]})["username"]
     if reviews == []:
+        # If there are no results leave message on screen
         flash("No results? Impossible! Perhaps the archives are incomplete...")
+    # Render the reviews which match search criteria
     return render_template("reviews.html", reviews=reviews)
 
 
 @app.route("/register", methods=["GET", "POST"])
+# Routing for Registration
 def register():
     if request.method == "POST":
         # check if username already exists in db
@@ -145,26 +158,27 @@ def register():
 
 
 @app.route("/login", methods=["GET", "POST"])
+# Routing for Login
 def login():
     if request.method == "POST":
-        # check if username exists in db
+        # Check if username exists in db
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            # ensure hashed password matches user input
+            # Ensure hashed password matches user input
             if check_password_hash(existing_user["password"],
                                    request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 return redirect(url_for(
                     "profile", username=session["user"]))
             else:
-                # invalid password match
+                # Invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
 
         else:
-            # username doesn't exist
+            # Username doesn't exist
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
@@ -172,6 +186,7 @@ def login():
 
 
 @app.route("/logout")
+# Routing for LogOut
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
@@ -180,6 +195,7 @@ def logout():
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
+# Routing for the profile page
 def profile(username):
     # grab the session user's username from db
     username = mongo.db.users.find_one(
@@ -192,12 +208,14 @@ def profile(username):
 
 
 @app.route("/get_categories")
+# Routing for Categories page
 def get_categories():
     categories = list(mongo.db.categories.find().sort("category_name", 1))
     return render_template("categories.html", categories=categories)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
+# Routing for Add category page form
 def add_category():
     if request.method == "POST":
         category = {
@@ -211,6 +229,7 @@ def add_category():
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+# Routing for Edit category page form
 def edit_category(category_id):
     if request.method == "POST":
         submit = {
@@ -225,6 +244,7 @@ def edit_category(category_id):
 
 
 @app.route("/delete_category/<category_id>")
+# Routing for Deleting category
 def delete_category(category_id):
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
