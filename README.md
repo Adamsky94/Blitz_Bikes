@@ -30,10 +30,14 @@ Python app running from Heroku and the HTML code is rendered using the Jinja tem
 
 - [Testing](#Testing)
 
+  - [Testing User Stories](#Testing-user-stories)
+  - [Testing the code](#Testing-the-code)
   - [Bugs](#Bugs)
   - [Lighthouse](#Lighthouse)
 
 - [Deployment](#Deployment)
+
+- [Forking repository](#Forking-this-repository)
 
 - [Cloning repository](#Cloning-this-repository)
 
@@ -204,7 +208,79 @@ I used Git for version control and uploading the project to GitHub.
 
 My GitHub repository for this project: https://github.com/Adamsky94/Blitz_Bikes
 
+-----------------
+
 ### Testing
+
+#### Testing user stories
+
+#### Visitors
+
+- To be able to enter the site past the landing page
+    // Clear layout with one functional interactive button
+
+- To be able to see all reviews posted containing all relevant information
+    // There is clear, functional navigation option on the top of the page, review cards are shown either in pairs or in singles
+
+- To be able to search in the reviews
+    // Dedicated functional searchbox included in the main reviews page with the appropriate results or an error message showing
+
+- To be able to see non-broken layout on all resolutions and screensizes
+    // Responsive layout created with Materialize grid and CSS Media Queries. Readable text on all background elements, well used colors and clear page layout. Navbar and footer gives a frame to each page but the index page.
+
+- To be able to view all images, not seeing borken images
+    // Images apart from the background are responsive to the viewport, mostly noticable on review card images. When there is a review image other than the default
+    users are able to click on it to zoom in. The image will resize to original on 2nd click or scrolling.
+
+- To be able to easily navigate on the site and clear feedback upon user interaction
+    // All navigation links are functional, individual page contacts clearly defines to the user what section they are on currently.
+
+- To be able to register to the site
+    // Easy to understand 2 row navigation form which requires username and password as input. The site shows error messages to the user if the word they entered
+    does not match required criteria.
+
+#### Registered Users
+
+- To be able to log in and out of my personal profile
+    //  Dedicated 'Log In' page which requires usernam and password input. Page shows error message if the input does not match criteria.
+
+- To be able to leave a review
+    //  Dedicated page for leaving reviews comes visible for registered users on logging in. Here is a form that contains several different type of inputs,
+    including dropdowns, textareas and date. All inputs are required and the page shows clear error messages to the users if the input does not match the requirement.
+
+- To be able to see the collection of reviews I left
+    //  Dedicated page for each user where they can see all their reviews listed. 
+
+- To be able to edit the reviews I left
+    // All the user revies listed have been added an edit button to their review. Clicking it will take the users to a similar form when they left the review. The form would get
+    details for the particular review from the databes so most inputs will be filled with the exact data they entered. Below the form they are 2 buttons again so the user can either cancel modifications and return back to the reviews
+    or submit the review again with modifications taking place.
+
+- To be able to delete the reviews I left
+    // All the user revies listed have been added a delete button to their review. Clicking it will delete the review from the database.
+
+#### As Administrator
+    
+- To be able to see all categories for the reviews
+    // A dedicated 'Manage Categories' page is there for the Administrator that will list all categories stored in the database. All categories have an edit and delete button.
+
+- To be able to create a category for the reviews
+    // There is a dedicated button to further add more categories on this page. This redirects to an input form.
+
+- To be able to modify a category for the reviews
+    // Clicking edit in a category will redirect to a form which is getting the current category name from the database. The admin can either modify and save that or cancel the interaction with buttons.
+
+- To be able to delete a category for the reviews
+    // Clicking delete in a category will delete it from the database.
+
+- To be able to modify/claim any user's review
+    // As Administrator you have an edit button on each review on the main reviews page. Clciking that will redirect to the review form where all inputs can be modified. There is 2 buttons to either cancel interaction
+    or save changes. Upon saving changes the review will show up under the 'Claimed reviews' page because now Admin will show up as the user who left the review.
+
+- To be able to delete any user's review
+    // As Administrator you have a delete button on each review on the main reviews page. Clciking that will delete the review from the database. Only the Administrator has the ability to edit/claim or delete any user's review.
+
+#### Testing the code
 
 HTML code validated on - https://validator.w3.org/ -The Validator only shows errors because of the Jinja templating being used.
 
@@ -308,6 +384,16 @@ SECRET_KEY = [Your Secret key]
 
 ------
 
+### Forking this repository
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log in to GitHub and locate the GitHub Repository
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+
+------
+
 ### Cloning this repository
 
 When you clone a repository, you copy the repository from GitHub to your local machine. 
@@ -329,6 +415,8 @@ When you clone a repository, you copy the repository from GitHub to your local m
    ```
 
 7. Press **Enter** to create your local clone.
+
+8. While you have the local copy open in your editor type `python3 app.py` in the Command Line Interface.
 
 GitHub documentation on cloning repository includes other methods to using the console. You can read more [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
